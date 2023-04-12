@@ -1,3 +1,5 @@
+
+include <stdio.h>
 #include <stdio.h>
 #include <stdlib.h>
 #define TaMax 3
@@ -71,7 +73,7 @@ int main (){
 		fgets (dado.rg, 10, stdin);
 		if (dado.idade < 18){
 			fflush (stdin);
-			printf ("\nNome do Responsável: ");
+			printf ("\nNome do ResponsÃ¡vel: ");
 			fgets (dado.nome_do_responsavel, 60, stdin);
 			fflush (stdin);
 			printf ("\nCpf do Responsavel: ");
