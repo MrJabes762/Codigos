@@ -3,6 +3,7 @@ package br.edu.ifba.saj.ads.poo;
 import java.util.ArrayList;
 import java.util.Calendar;
 
+
 public class Comprovante {// concluido
     private Calendar dataehoradeagora;
     private float valortotal;
@@ -22,11 +23,13 @@ public class Comprovante {// concluido
         this.pedidos = pedidos;
     }
 
+
     public Calendar getDataehoradeagora() {// concluido
         return dataehoradeagora;
     }
 
     public void setDataehoradeagora() {// concluido
+
         this.dataehoradeagora = Calendar.getInstance();
     }
 
