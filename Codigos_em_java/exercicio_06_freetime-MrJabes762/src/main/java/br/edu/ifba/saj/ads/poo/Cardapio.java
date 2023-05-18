@@ -31,7 +31,6 @@ public class Cardapio {
         for (int i = 0; i < itens.size(); i++) {
             if (itemEmcontrado(nomedoitem1)) {
                 return itens.get(i);
-                break;
             }
         }
         return null;
