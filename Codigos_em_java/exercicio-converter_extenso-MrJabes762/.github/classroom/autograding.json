@@ -1,0 +1,14 @@
+{
+  "tests": [
+    {
+      "name": "TestConverterExtenso",
+      "setup": "",
+      "run": "mvn test",
+      "input": "",
+      "output": "",
+      "comparison": "included",
+      "timeout": 1,
+      "points": null
+    }
+  ]
+}
