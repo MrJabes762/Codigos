@@ -1,4 +1,5 @@
 public class SistemaReservadeEventos implements OperacoesDoSistema {
+
     private BancodeDadosDeEventos banco;
     private IngressosSelecionados ingressos;
     
@@ -10,6 +11,12 @@ public class SistemaReservadeEventos implements OperacoesDoSistema {
     @Override
     public void cadastrarEventos(Evento evento) {//Feito
         getBanco().adicionarEventosNoBancoDeDados(evento);
+
+
+    @Override
+    public void cadastrarEventos(Evento evento) {
+       
+
     }
 
     @Override
@@ -49,6 +56,15 @@ public class SistemaReservadeEventos implements OperacoesDoSistema {
     }
     public void setIngressos(IngressosSelecionados ingressos) {
         this.ingressos = ingressos;
+
+    public List pesquisarEventosdisponiveis() {
+        // TODO Auto-generated method stub
+        return null;
+    }
+
+    @Override
+    public void reservarIngresso(Ingresso ingresso) {
+
     }
     
 }
