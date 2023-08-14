@@ -1,9 +1,10 @@
+import java.util.Calendar;
 import java.util.Date;
 
 public class Comprovante {
     private static IngressosSelecionados ingressosSelecionados;
-    private Date data;
-    public Comprovante(IngressosSelecionados ingressosSelecionados,Date data) {
+    private Calendar data;
+    public Comprovante(IngressosSelecionados ingressosSelecionados,Calendar data) {
         setIngressosSelecionados (ingressosSelecionados);
         setData(data);
     }
@@ -13,7 +14,7 @@ public class Comprovante {
     public static void setIngressosSelecionados(IngressosSelecionados ingressosSelecionados) {
         Comprovante.ingressosSelecionados = ingressosSelecionados;
     }
-    public Date getData() {
+    public Calendar getData() {
         return data;
     }
     public void setData(Date data) {

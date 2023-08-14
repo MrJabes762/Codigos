@@ -1,8 +1,10 @@
+import java.util.Calendar;
+
 public class SistemaReservadeEventos implements OperacoesDoSistema {
 
     private BancodeDadosDeEventos banco;
     private IngressosSelecionados ingressos;
-    
+    private Comprovante comprovante;
 
     public SistemaReservadeEventos (){
         setBanco(new BancodeDadosDeEventos());
@@ -11,29 +13,21 @@ public class SistemaReservadeEventos implements OperacoesDoSistema {
     @Override
     public void cadastrarEventos(Evento evento) {//Feito
         getBanco().adicionarEventosNoBancoDeDados(evento);
-
-
-    @Override
-    public void cadastrarEventos(Evento evento) {
-       
-
     }
 
     @Override
     public void gerarComprovante() {
-
+        this.comprovante = new Comprovante (getIngressos(),Calendar.getInstance());
     }
 
     @Override
     public Comprovante getComprovante() {
-        // TODO Auto-generated method stub
-        return null;
+        return this.comprovante;
     }
 
     @Override
     public double getTotaldasreservas(Comprovante comprovante) {
-        // TODO Auto-generated method stub
-        return 0;
+        return this.comprovante.getIngressosSelecionado();
     }
 
     @Override
@@ -56,15 +50,12 @@ public class SistemaReservadeEventos implements OperacoesDoSistema {
     }
     public void setIngressos(IngressosSelecionados ingressos) {
         this.ingressos = ingressos;
-
-    public List pesquisarEventosdisponiveis() {
-        // TODO Auto-generated method stub
-        return null;
     }
-
-    @Override
-    public void reservarIngresso(Ingresso ingresso) {
-
+    public Calendar getData() {
+        return data;
+    }
+    public void setData(Calendar data) {
+        this.data = data;
     }
     
 }
