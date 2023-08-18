@@ -58,22 +58,6 @@ public class SistemaReservadeEventos implements OperacoesDoSistema {
     }
     public void setData(Calendar data) {
         this.data = data;
-
-    @Override
-    public void reservarIngresso(Ingresso ingresso) {//feito
-        getIngressos().adicinarIngressoSelecionado(ingresso);
     }
-    public BancodeDadosDeEventos getBanco() {
-        return banco;
-    }
-    public void setBanco(BancodeDadosDeEventos banco) {
-        this.banco = banco;
-    }
-    public IngressosSelecionados getIngressos() {
-        return ingressos;
-    }
-    public void setIngressos(IngressosSelecionados ingressos) {
-        this.ingressos = ingressos;
-
-    }
+    
 }
