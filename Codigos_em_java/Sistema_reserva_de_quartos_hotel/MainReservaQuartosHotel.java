@@ -7,8 +7,9 @@ public class MainReservaQuartosHotel {
         sistema.cadastroDeQuartosNoHotel (new Quarto (3,"Suite", 50.00, 3));
         sistema.reservarQuartos (1);//implementar seleção de Datas atual da reserva
         sistema.reservarQuartos (2);//implementar seleção de Datas atual da reserva
-        System.out.println(sistema.getTotaldasReservas ());
+        System.out.println(sistema.getTotaldasReservas ());// calculo do total de reservas 
         sistema.gerarComprovante ();
+        System.out.println(sistema.getComprovante());
     }
     /*Uma rede de hotéis está planejando um sistema de reserva de quartos online. 
     O sistema deve permitir que os clientes pesquisem quartos disponíveis, escolham as datas de check-in e check-out, e façam a reserva. 
