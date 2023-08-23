@@ -1,18 +1,19 @@
 
-public class SistemaReservadeQuartosHotel implements OperacoesDeResercadeQuartos{
+public class SistemaReservadeQuartosHotel implements OperacoesDeResercadeQuartos {
     private Hotel hotel;
     private HotelReservado reservados;
-    public SistemaReservadeQuartosHotel (){
+    private double total;
+    public SistemaReservadeQuartosHotel() {
         setHotel(new Hotel());
-        setReservados (new HotelReservado());
+        setReservados(new HotelReservado());
     }
+
     @Override
-    public boolean cadastroDeQuartosNoHotel(Quarto quarto) {
-        try {
-            getHotel().adicionarQuartos(quarto)
+    public boolean cadastroDeQuartosNoHotel(Quarto quarto) throws ArgumentoInrregularException {
+        if (getHotel().adicionarQuartos(quarto)) {
             return true;
-        } catch (ArgumentoInrregularException e) {
-            System.out.println(e.getMessage());
+        } else {
+            return false;
         }
     }
 
@@ -24,13 +25,17 @@ public class SistemaReservadeQuartosHotel implements OperacoesDeResercadeQuartos
 
     @Override
     public double getTotaldasReservas() {
-        // TODO Auto-generated method stub
-        return 0;
+        for (int i = 0; i < getReservados().getQuartosreservados().size(); i++) {
+            total += getReservados().getQuartosreservados().get(i).getValor();
+        }
+        return total;
     }
 
     @Override
     public boolean reservarQuartos(int id) {
-        
+        if(getReservados().adicionarQuartosReservados(getHotel().pegarQuarto(id))){
+            return true;
+        }
         return false;
     }
 
@@ -41,9 +46,11 @@ public class SistemaReservadeQuartosHotel implements OperacoesDeResercadeQuartos
     public void setHotel(Hotel hotel) {
         this.hotel = hotel;
     }
+
     public HotelReservado getReservados() {
         return reservados;
     }
+
     public void setReservados(HotelReservado reservados) {
         this.reservados = reservados;
     }
