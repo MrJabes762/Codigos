@@ -59,5 +59,4 @@ public class SistemaReservadeEventos implements OperacoesDoSistema {
     public void setData(Calendar data) {
         this.data = data;
     }
-    
 }
