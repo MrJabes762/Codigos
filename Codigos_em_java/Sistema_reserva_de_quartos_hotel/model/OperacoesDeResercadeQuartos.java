@@ -3,4 +3,5 @@ public interface OperacoesDeResercadeQuartos {
     public boolean reservarQuartos (int id);
     public double getTotaldasReservas();
     public ComprovantedeReserva getComprovante ();
+    public boolean gerarComprovante (double valorDoPagamento);
 }

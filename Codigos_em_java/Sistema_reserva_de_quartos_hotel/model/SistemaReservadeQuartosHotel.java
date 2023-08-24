@@ -2,7 +2,7 @@
 public class SistemaReservadeQuartosHotel implements OperacoesDeResercadeQuartos {
     private Hotel hotel;
     private HotelReservado reservados;
-    private double total;
+    private ComprovantedeReserva comprovante;
     public SistemaReservadeQuartosHotel() {
         setHotel(new Hotel());
         setReservados(new HotelReservado());
@@ -19,16 +19,12 @@ public class SistemaReservadeQuartosHotel implements OperacoesDeResercadeQuartos
 
     @Override
     public ComprovantedeReserva getComprovante() {
-        // TODO Auto-generated method stub
-        return null;
+        return this.comprovante;
     }
 
     @Override
     public double getTotaldasReservas() {
-        for (int i = 0; i < getReservados().getQuartosreservados().size(); i++) {
-            total += getReservados().getQuartosreservados().get(i).getValor();
-        }
-        return total;
+        return getComprovante().getValorTotal();
     }
 
     @Override
@@ -53,5 +49,19 @@ public class SistemaReservadeQuartosHotel implements OperacoesDeResercadeQuartos
 
     public void setReservados(HotelReservado reservados) {
         this.reservados = reservados;
+    }
+
+    @Override
+    public boolean gerarComprovante(double valorDoPagamento) {
+        if (valorDoPagamento >= getTotaldasReservas()){
+            setComprovante();
+            return true;
+        }else {
+            throw new ArgumentoInrregularException("Valor incorreto ou insuficiente");
+        }
+    }
+
+    public void setComprovante() {
+        this.comprovante = new ComprovantedeReserva(getReservados());
     }
 }
