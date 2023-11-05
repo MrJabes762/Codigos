@@ -33,5 +33,9 @@ public class Quarto {
     public void setCapacidade(int capacidade) {
         this.capacidade = capacidade;
     }
-    
+    @Overide
+    public boolean equals (Object obj){
+
+    }
+
 }
