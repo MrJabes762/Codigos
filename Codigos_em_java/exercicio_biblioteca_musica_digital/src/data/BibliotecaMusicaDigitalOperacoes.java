@@ -1,7 +1,10 @@
-public class Roteiro {
-    public static void main(String[] args) {
-        
-    }
+package data;
+import model.Musica;
+public interface BibliotecaMusicaDigitalOperacoes{
+    public abstract void adicionarMusicaAListaReproducao (Musica musica) throws BibliotecaException;
+    public abstract void removerMusicaListaReproducao (Musica musica);
+    public abstract Musica reproduzirMusica (Musica musica);
+    public abstract int duracaoTotal();
 }
 /*Biblioteca de Música Digital: Crie um sistema para gerenciar uma biblioteca de música digital.
  Os usuários podem criar listas de reprodução, cada uma contendo várias músicas. Cada música tem informações, como título, artista e duração. 
