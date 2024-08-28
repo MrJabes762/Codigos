@@ -6,7 +6,17 @@ body{
     color: beige;
     font-family: Arial, Helvetica, sans-serif;
 }
+header{
+    padding-top: 20px;
+    text-align: center;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 10px;
+    margin-left: 50px;
+}
 .clock{
+    padding-top: 50px;
+    justify-content: center;
     font-size: 3rem;
     text-align: center;
 }
