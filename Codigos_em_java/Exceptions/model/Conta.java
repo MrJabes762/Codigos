@@ -9,7 +9,7 @@ public class Conta {
     public Conta(String nome, String cpf, float saldo, String token) throws CriacaoDeContasException {
         if((nome == null) || (cpf == null) || (token == null)){
             throw new CriacaoDeContasException("Campos de Nome ou Cpf ou Chave de Segurança estão nulos");
-        }else if ((Objects.equals(nome, "")) || (Objects.equals(cpf,"")) || (Objects.equals(token, ""))){
+        }else if ((nome.isEmpty()) || (cpf.isEmpty()) || (token.isEmpty())){
             throw new CriacaoDeContasException("Canpos de Nome ou Cpf ou Token estão Vazios");
         }else if (cpf.length() < 11){
             throw new CriacaoDeContasException("Cpf Inválido");

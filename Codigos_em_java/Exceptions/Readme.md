@@ -30,7 +30,7 @@
 
     - Perda de Dados
     - Dados Não integros 
-    - 
+    
 
 ## Impacto 
 
