@@ -1,5 +1,4 @@
 import data.ArgumentoIrregullarException;
-import data.BancoDeContasCorrentes;
 import data.ContaDuplicadaException;
 import model.Conta;
 import model.ContaCorrente;
