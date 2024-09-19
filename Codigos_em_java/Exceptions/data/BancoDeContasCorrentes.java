@@ -6,9 +6,8 @@ import model.ContaCorrente;
 
 public class BancoDeContasCorrentes {
     private static HashMap<String,ContaCorrente> lista = new HashMap<>();
-
-    public static void adicionarConta(ContaCorrente conta){
-        getLista().put(conta.getConta().getChaveDeSeguranca(), conta);
+    public static void adicionarConta(String chaveDeSeguranca,ContaCorrente conta){
+        getLista().put(chaveDeSeguranca, conta);
         System.out.println("Salva Com sucesso no banco ");
     }
     
@@ -40,6 +39,7 @@ public class BancoDeContasCorrentes {
     private void setLista(HashMap<String,ContaCorrente> lista) {
         BancoDeContasCorrentes.lista = lista;
     }
+
     @Override
     public String toString() {
         return "{" +

@@ -5,19 +5,19 @@ public class Conta {
     private String nome;
     private String cpf;
     private float saldo;
-    private String chaveDeSeguranca;
-    public Conta(String nome, String cpf, float saldo, String token) throws CriacaoDeContasException {
-        if((nome == null) || (cpf == null) || (token == null)){
+    private String senha;
+    public Conta(String nome, String cpf, float saldo, String senha) throws CriacaoDeContasException {
+        if((nome == null) || (cpf == null) || (senha == null)){
             throw new CriacaoDeContasException("Campos de Nome ou Cpf ou Chave de Segurança estão nulos");
-        }else if ((nome.isEmpty()) || (cpf.isEmpty()) || (token.isEmpty())){
-            throw new CriacaoDeContasException("Canpos de Nome ou Cpf ou Token estão Vazios");
+        }else if ((nome.isEmpty()) || (cpf.isEmpty()) || (senha.isEmpty())){
+            throw new CriacaoDeContasException("Canpos de Nome ou Cpf ou semha estão Vazios");
         }else if (cpf.length() < 11){
             throw new CriacaoDeContasException("Cpf Inválido");
         }else{
             setNome(nome);
             setCpf(cpf);
             setSaldo(saldo);
-            setChaveDeSeguranca(token);
+            setChaveDeSeguranca(senha);
             System.out.println("Conta Criada Con Sucesso");
         }
     }
@@ -47,11 +47,11 @@ public class Conta {
         this.cpf = cpf;
     }
     public String getChaveDeSeguranca() {
-        return this.chaveDeSeguranca;
+        return this.senha;
     }
 
-    public void setChaveDeSeguranca(String chaveDeSeguranca) {
-        this.chaveDeSeguranca = chaveDeSeguranca;
+    public void setChaveDeSeguranca(String senha) {
+        this.senha = senha;
     }
     @Override
     public boolean equals(Object obj) {
