@@ -25,15 +25,15 @@ public class Main {
            //Conta conta = new Conta (null,null,0,null);//Demonstração de Campos nulos 
            //Conta conta1 = new Conta ("","",0,"");//Demonstração de Campos Vazios
            //Conta conta2 = new Conta("Pedro", "12345678", 0, "Seila12345@"); // Demonstração Cpf Invalido
-           Conta conta3 = new Conta ("Pedro", "12345678911",0,"Seila1234@");
-           Conta conta4 = new Conta ("Pedro", "12345678911",0,"Seila1234@");// Exemplo da conta duplicada 
-           Conta conta5 = new Conta ("João",  "03143275607", 0, "@chave10");
+           Conta conta3 = new Conta ("Pedro", "12345678911",0,"@#!$#@Lucas");
+           Conta conta4 = new Conta ("Pedro", "12345678911",0,"Seila123424354@");// Exemplo da conta duplicada 
+           Conta conta5 = new Conta ("João",  "03143275607", 0, "MDS@sfrgfdfsdd");
            ContaCorrente conta31 = new ContaCorrente(conta3);
            ContaCorrente conta41 = new ContaCorrente(conta4);// Exemplo Da Conta Duplicada 
            ContaCorrente conta51 = new ContaCorrente(conta5);
-           BancoServices.create(conta31);
-           //BancoServices.create(conta41);//Demonstração de Contas Duplicadas
-           BancoServices.create(conta51);
+           BancoServices.create(conta31, "Seila1234@");
+           //BancoServices.create(conta41, "");//Demonstração de Contas Duplicadas
+           BancoServices.create(conta51, "@chave10");
            BancoServices.getLista().get("Seila1234@").deposita(1200);// A chave tem que ser Exatamente igual 
            System.out.println(BancoServices.getLista().get("Seila1234@"));
            //BancoServices.getLista().get("Seila1234@").deposita(0);// Demonstração de operações invalidas com valores menor que zero ou = a 0

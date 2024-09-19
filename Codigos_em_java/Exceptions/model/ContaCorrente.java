@@ -67,7 +67,6 @@ public class ContaCorrente implements Operacoes{
             return " Operação "+ getOperacao() + ", Valor da Operacao "+ getValorOperacao() + getConta().toString();
         }
     }
-    
 }
 
     

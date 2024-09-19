@@ -8,9 +8,9 @@ import model.ContaCorrente;
 
 public class BancoServices {
 
-    public static void create (ContaCorrente conta) throws ContaDuplicadaException, ArgumentoIrregullarException{
+    public static void create (ContaCorrente conta, String chaveDeSeguranca) throws ContaDuplicadaException, ArgumentoIrregullarException{
         verificarAConta (conta);
-        BancoDeContasCorrentes.adicionarConta(conta);
+        BancoDeContasCorrentes.adicionarConta(chaveDeSeguranca,conta);
     }
     private static void verificarAConta(ContaCorrente conta) throws ContaDuplicadaException, ArgumentoIrregullarException {
         if(BancoDeContasCorrentes.isContaDuplicada(conta)){
@@ -20,9 +20,9 @@ public class BancoServices {
     public static HashMap<String,ContaCorrente> getLista (){
         return BancoDeContasCorrentes.getLista();
     }
-    public static void update (ContaCorrente conta){
-        BancoDeContasCorrentes.adicionarConta(conta);
-    }
+    //public static void update (ContaCorrente conta){
+        //BancoDeContasCorrentes.adicionarConta(conta);
+    //}
     public static void remove(String chaveDeSegurança, ContaCorrente conta) throws ArgumentoIrregullarException{
         BancoDeContasCorrentes.removerConta(chaveDeSegurança, conta);
     }
