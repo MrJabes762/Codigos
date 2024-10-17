@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <style>
+      * {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+        border: 0;
+      }
+
+      #formulario-CadProdutos {
+        margin: 1rem;
+      }
+
+      body {
+        background: rgb(0,9,20);
+        background: linear-gradient(53deg, rgba(0,9,20,1) 0%, rgba(56,60,65,1) 100%);
+      }
+
+      h3 {
+        color: white;
+      }
+
+      form label {
+        color: white;
+      }
+
+      #botao-voltar{
+        margin: 1rem;
+      }
+    </style>
+</head>
+<body>
+  <button id="botao-voltar" type="button" onclick="window.location.href='/CadastroDeProdutosMenu'"class="btn btn-primary">Voltar</button>
+    
+  <form id="formulario-CadProdutos" action="/Produtos/ListaDeProdutosCad" method="post">
+    <h3>CADASTRO DE PRODUTOS</h3><br>
+
+    <div class="mb-3">
+      <label for="nomeProduto" class="form-label">Nome</label>
+      <input type="text" name="nome" class="form-control" id="nomeProduto">
+    </div>
+
+    <div class="mb-3">
+      <label for="descricaoProduto" class="form-label">Descrição</label>
+      <input type="text" name="descricao" class="form-control" id="descricaoProduto">
+    </div>
+
+    <div class="mb-3">
+      <label for="codigoBarrasProduto" class="form-label">Código de Barras</label>
+      <input type="text" name="codigoBarras" class="form-control" id="codigoBarrasProduto">
+    </div>
+
+    <div class="mb-3">
+      <label for="precoProduto" class="form-label">Preço</label>
+      <input type="number" name="preco" class="form-control" id="precoProduto">
+    </div>
+
+    <div class="mb-3">
+      <label for="unidadeMedidaProduto" class="form-label">Unidade Medida</label>
+      <input type="text" name="unidadeMedida" class="form-control" id="unidadeMedidaProduto">
+    </div>
+
+    <div class="mb-3">
+      <label for="dataCadastroProduto" class="form-label">Data Cadastro</label>
+      <input type="date" name="dataCadastro" class="form-control data-cadastro" id="dataCadastroProduto" readonly>
+    </div>
+
+    <div class="btn-group" role="group" aria-label="Basic checkbox toggle button group">
+      <input type="checkbox" name="ativo" class="btn-check" id="btncheck1" autocomplete="off">
+      <label class="btn btn-outline-primary" for="btncheck1">Ativo</label>
+    </div>
+
+    <div class="mb-3">
+      <label for="idCategoriaProduto" class="form-label">Categoria</label>
+      <select name="idDaCategoria" class="form-control" id="idDaCategoria" required>
+        <option value="">Selecione uma Categoria</option>
+        {{#categorias}}
+            <option value="{{id}}">{{nome}}</option>
+        {{/categorias}}
+      </select>
+    </div>
+
+    <div class="mb-3">
+      <label for="idFornecedorProduto" class="form-label">Fornecedor</label>
+      <select name="idDoFornecedor" class="form-control" id="idDoFornecedor" required>
+            <option value="">Selecione um Fornecedor</option>
+              {{#fornecedores}}
+                  <option value="{{id}}">{{nome}}</option>
+              {{/fornecedores}}
+          </select>
+    </div>
+
+    <br><br>
+    <button type="submit" class="btn btn-warning">Cadastrar</button>
+  </form>
+
+  <script>
+    // Função para definir a data atual no campo com a classe "data-cadastro"
+    window.onload = function() {
+      var today = new Date();
+      var day = String(today.getDate()).padStart(2, '0');
+      var month = String(today.getMonth() + 1).padStart(2, '0'); 
+      var year = today.getFullYear();
+
+      var currentDate = year + '-' + month + '-' + day;
+      document.querySelector('.data-cadastro').value = currentDate;
+    }
+  </script>
+
+</body>
+</html>
