@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <title>Document</title>
+</head>
+<body>
+    <style>
+        *{
+          box-sizing: border-box;
+          margin: 0;
+          padding: 0;
+          border: 0;
+        }
+    
+        #produtos-botoes{
+          margin-left: 1rem;
+          display: block;
+          width: 35%;
+        }
+
+        #produtos-botoes button{
+          margin-top: 0.5rem;
+        }
+
+        #menu-titulo{
+          margin-left: 1rem;
+
+        }
+
+        body{
+          background: rgb(0,9,20);
+background: linear-gradient(53deg, rgba(0,9,20,1) 0%, rgba(56,60,65,1) 100%);
+
+        }
+
+        h1{
+          color: white
+        }
+
+        #butao{
+          background-color:#000914;
+        }
+      </style>
+      
+    
+
+    <h1 id="menu-titulo">MENU ESTOQUE</h1><br>
+    <div id="produtos-botoes">
+        <button type="button" onclick="window.location.href='/'"class="btn btn-primary">Voltar</button>
+
+
+        <button id="butao" type="button" onclick="window.location.href='/Estoque/CadEstoque' " class="btn btn-primary">Cadastrar Estoque</button>
+        <button id="butao" type="button" onclick="window.location.href='/Estoque/ListaDeEstoques' " class="btn btn-primary">Ver Estoques</button>
+    
+    </div>  
+
+</body>
+</html>

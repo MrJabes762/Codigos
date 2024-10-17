@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+</head>
+<body>
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      border: 0;
+    }
+
+    #formulario-CadEstoques {
+      margin: 1rem;
+      background: rgb(0,9,20);
+      background: linear-gradient(53deg, rgba(0,9,20,1) 0%, rgba(56,60,65,1) 100%);
+    }
+
+    body {
+      background: rgb(0,9,20);
+      background: linear-gradient(53deg, rgba(0,9,20,1) 0%, rgba(56,60,65,1) 100%);
+    }
+
+    h3 {
+      color: white;
+    }
+
+    form label {
+      color: white;
+    }
+
+    #botao-voltar{
+        margin: 1rem;
+      }
+  </style>
+
+<button id="botao-voltar" type="button" onclick="window.location.href='/Estoque/ListaDeEstoques'"class="btn btn-primary">Voltar</button>
+  <form id="formulario-CadEstoques" action="/Estoque/atualizar" method="post">
+    <h3>EDIÇÃO DE ESTOQUE</h3><br>
+
+    <div class="mb-3">
+      <label for="exampleInputEmail1" class="form-label">ID DO ESTOQUE</label>
+      <input type="number" name="id" value="{{estoqueAntigo.id}}" class="form-control" id="exampleInputEmail1" readonly>
+    </div>
+
+    <div class="mb-3">
+      <label for="exampleInputEmail1" class="form-label">Produto</label>
+      <select name="idProduto" class="form-control" id="idProduto" required>
+                <option value="">Selecione um produto</option>
+                {{#produtos}}
+                    <option value="{{id}}">{{nome}}</option>
+                {{/produtos}}
+      </select>
+    </div>
+
+    <div class="mb-3">
+      <label for="exampleInputEmail1" class="form-label">Quantidade</label>
+      <input type="number" name="quantidade" value="{{estoqueAntigo.quantidade}}" class="form-control" id="exampleInputEmail1">
+    </div>
+
+    <div class="mb-3">
+      <label for="dataUltimaAtualizacao" class="form-label">Data da Última Atualização</label>
+      <input type="date" name="dataUltimaAtualizacao" class="form-control" id="dataUltimaAtualizacao" readonly>
+    </div>
+
+    <div class="mb-3">
+      <label for="localizacao" class="form-label">Localização</label>
+      <input type="text" name="localizacao" value="{{estoqueAntigo.localizacao}}" class="form-control" id="localizacao">
+    </div>
+
+    <br>
+    <button type="submit" class="btn btn-warning">Atualizar</button>
+  </form>
+
+  <script>
+    // Função para definir a data atual no campo de "Data da Última Atualização"
+    window.onload = function() {
+      var today = new Date();
+      var day = String(today.getDate()).padStart(2, '0');
+      var month = String(today.getMonth() + 1).padStart(2, '0'); // Janeiro é 0!
+      var year = today.getFullYear();
+
+      var currentDate = year + '-' + month + '-' + day;
+      document.querySelector('#dataUltimaAtualizacao').value = currentDate;
+    }
+  </script>
+</body>
+</html>
