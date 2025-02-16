@@ -1,44 +1,44 @@
-// O Array (internamente) em Java Script é um Objeto os seus atributos e valores são setados em seus indices 
-// È uma estrutura dinâmica e heterogenia que crece e diminu: posso colocar qualquer tipo de objeto 
-// Mas é uma boa prática sempre trabalhar com dados do mesmo tipo - homogenio 
+// O Array (internamente) em JavaScript é um objeto, seus atributos e valores são setados em seus índices
+// É uma estrutura dinâmica e heterogênea que cresce e diminui: posso colocar qualquer tipo de objeto
+// Mas é uma boa prática sempre trabalhar com dados do mesmo tipo - homogêneo
 
-console.log(typeof Array, typeof new Array (), typeof []);
+console.log(typeof Array, typeof new Array(), typeof []);
 
-let aprovados = new Array ('Bia','Carlos','Ana'); // essa é uma das formas não muito usuais de se criar um array 
+let aprovados = new Array('Bia', 'Carlos', 'Ana'); // essa é uma das formas não muito usuais de se criar um array
 console.log(aprovados);
 
 aprovados = ['Bia', 'Lucas', 'Ana']; // anotação comumente utilizada
 console.log(aprovados);
 
-aprovados = [{nome:'Bia', nota:8.9,} , {nome:'Joao', nota:9}];// Array de Objetos
+aprovados = [{ nome: 'Bia', nota: 8.9 }, { nome: 'Joao', nota: 9 }]; // Array de objetos
 console.log(aprovados);
 
-//Acessando Elementos 
+// Acessando elementos
 console.log(aprovados[0]);
 console.log(aprovados[1]);
 
-//Adicionando Elementos
-aprovados[2] = {nome:'Paulo', nota: 9.99};// na Poxima - esse é mais usado para editar infos
-aprovados.push({nome:'Jabes', nota:7.5});// na ultima posição
+// Adicionando elementos
+aprovados[2] = { nome: 'Paulo', nota: 9.99 }; // na próxima - esse é mais usado para editar infos
+aprovados.push({ nome: 'Jabes', nota: 7.5 }); // na última posição
 console.log(aprovados);
-console.log('Tamano do Array = ' + aprovados.length); //Mostrar o tamanho do Array
+console.log('Tamanho do Array = ' + aprovados.length); // Mostrar o tamanho do array
 
-aprovados[5] = {nome:'Jorge', nota: 8.8};
+aprovados[5] = { nome: 'Jorge', nota: 8.8 };
 
-console.log(aprovados, 'Tamanho ' + aprovados.length)
+console.log(aprovados, 'Tamanho ' + aprovados.length);
 
-//Ordenação
+// Ordenação
 aprovados.sort();
 console.log(aprovados);
 
-//Deletar
+// Deletar
 delete aprovados[2];
 console.log(aprovados);
 
-aprovados = ['Bia', 'Joao','Carlos','Eduarda'];
-aprovados.sort();// ordenei
+aprovados = ['Bia', 'Joao', 'Carlos', 'Eduarda'];
+aprovados.sort(); // ordenei
 console.log(aprovados);
 
 // A função splice pode adicionar, remover elementos em um array, adicionar e remover ao mesmo tempo
-aprovados.splice(1,1, 'Elevaldo', 'Jeurs');// primeiro parametro é o indece, e até qunto se remove remover
+aprovados.splice(1, 1, 'Elevaldo', 'Jeurs'); // primeiro parâmetro é o índice, e até quanto se remove
 console.log(aprovados);

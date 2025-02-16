@@ -1,9 +1,9 @@
-function Pessoa (){
-    this.idade = 0
+function Pessoa() {
+    this.idade = 0;
     setInterval(() => {
         this.idade++;
         console.log(this.idade);
-    },1000);
-};
+    }, 1000);
+}
 
-console.log(new Pessoa ());
+console.log(new Pessoa());

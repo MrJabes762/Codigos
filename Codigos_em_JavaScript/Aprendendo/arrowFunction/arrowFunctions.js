@@ -1,25 +1,25 @@
-//Comparação de parametros para ver se é estritamente igual ao parametro passado 
-//Esse exempl é pra mostrar a comparaçao entre escopos e validar verdadeiro ou falso
+// Comparação de parâmetros para ver se é estritamente igual ao parâmetro passado
+// Esse exemplo é para mostrar a comparação entre escopos e validar verdadeiro ou falso
 
-let comparaComTHis = function (param) {
+let comparaComThis = function(param) {
     console.log(this === param);
 };
 
-comparaComTHis(global);
-comparaComTHis(this);
+comparaComThis(global);
+comparaComThis(this);
 
 const obj = {};
-comparaComTHis = comparaComTHis.bind(obj);
-comparaComTHis(global);
-comparaComTHis(obj);
+comparaComThis = comparaComThis.bind(obj);
+comparaComThis(global);
+comparaComThis(obj);
 
-// Se fizemos uma function o this não apotará para o clobal e sim para o contexto da execução 
-let comparaComTHisArrow = param => console.log(this === param);
+// Se fizermos uma arrow function, o this não apontará para o global e sim para o contexto da execução
+let comparaComThisArrow = param => console.log(this === param);
 
-comparaComTHisArrow(global);
-comparaComTHisArrow(module.exports);
-comparaComTHisArrow(this);
+comparaComThisArrow(global);
+comparaComThisArrow(module.exports);
+comparaComThisArrow(this);
 
-comparaComTHisArrow = comparaComTHisArrow.bind(obj);
-comparaComTHisArrow(obj);
-comparaComTHisArrow(module.exports);
+comparaComThisArrow = comparaComThisArrow.bind(obj);
+comparaComThisArrow(obj);
+comparaComThisArrow(module.exports);
