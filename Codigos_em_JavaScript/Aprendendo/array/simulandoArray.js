@@ -1,16 +1,16 @@
-const quaseArray = { 0: 'Lucas', 1:'Jão', 2:'Duarda'}// um objetos com tais atributos
+const quaseArray = { 0: 'Lucas', 1: 'Jão', 2: 'Duarda' }; // um objeto com tais atributos
 console.log(quaseArray);
 
-Object.defineProperty(quaseArray,'toString', {//definindo um comportamento para o to String desse Objeto
+Object.defineProperty(quaseArray, 'toString', { // definindo um comportamento para o toString desse objeto
     value: function() {
         return Object.values(this);
     },
-    enumerable:false
+    enumerable: false
 });
 
 console.log(quaseArray[0]);
 
-const meuArray = ['Lucas','Jão','Duarda'];
+const meuArray = ['Lucas', 'Jão', 'Duarda'];
 
-console.log(quaseArray.toString(),meuArray);// chamando o método to string o comportamento do objeto é o mesmo do array criado
+console.log(quaseArray.toString(), meuArray); // chamando o método toString, o comportamento do objeto é o mesmo do array criado
 

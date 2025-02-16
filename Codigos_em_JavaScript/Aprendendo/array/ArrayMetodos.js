@@ -1,51 +1,44 @@
-const pilotos = ['vetel', 'alonso', 'Raikkonen', 'Massa']
+const pilotos = ['vetel', 'alonso', 'Raikkonen', 'Massa'];
 
 console.log(pilotos);
 
-// O método Pop remove o ultimo elemento do array
-pilotos.pop(); 
+// O método pop remove o último elemento do array
+pilotos.pop();
 
 console.log(pilotos);
 
-// Já este método adicona na ultima posição 
-
+// O método push adiciona na última posição
 pilotos.push('Senna');
 
 console.log(pilotos);
 
-//O método Shift remove a primeira posição 
-
+// O método shift remove o primeiro elemento
 pilotos.shift();
 
 console.log(pilotos);
 
-//Ao contrario do shift ele adiciona na primeira posição 
-
+// O método unshift adiciona na primeira posição
 pilotos.unshift('Hamilton');
 
 console.log(pilotos);
 
-// O Splice pode adicnonar / remover elementos em determinadas posições 
-// adicionar
-
-pilotos.splice(2,0,'Botas','Ibraimovick')// O zero é indicativo de não haver eliminação 
-
-console.log(pilotos);
-
-//Remover
-
-pilotos.splice(4,1);// vou remover o elemento de indice 4 e apenas 1
+// O splice pode adicionar/remover elementos em determinadas posições
+// Adicionar
+pilotos.splice(2, 0, 'Botas', 'Ibraimovick'); // O zero indica que não haverá eliminação
 
 console.log(pilotos);
 
-//O metodo slice retorna um novo array a partir do indice informado
-
-const algunsPilotos  = pilotos.slice(2);
+// Remover
+pilotos.splice(4, 1); // Remove o elemento de índice 4 e apenas 1
 
 console.log(pilotos);
 
+// O método slice retorna um novo array a partir do índice informado
+const algunsPilotos = pilotos.slice(2);
+
+console.log(pilotos);
 console.log(algunsPilotos);
 
-const algunsPilotos2 = pilotos.slice(1,4);// nesse exemplo ele pega retorna o array entre o primeiro indice informado ate o ultimo (segundo indice)
+const algunsPilotos2 = pilotos.slice(1, 4); // Retorna o array entre o primeiro índice informado até o último (segundo índice)
 
 console.log(algunsPilotos2);

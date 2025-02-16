@@ -1,22 +1,22 @@
 class Lancamento {
-    constructor(nome = 'Generico', valor = 0){
+    constructor(nome = 'Generico', valor = 0) {
         this.nome = nome;
         this.valor = valor;
     }
 }
 
 class CicloFinanceiro {
-    constructor(mes,ano){
+    constructor(mes, ano) {
         this.mes = mes;
         this.ano = ano;
         this.lancamentos = [];
     }
     
-    addLancamentos(...lancamentos){ // receber um ou mais elementos do mesmo array contendotributos varios a
+    addLancamentos(...lancamentos) { // receber um ou mais elementos do mesmo array contendo vários atributos
         lancamentos.forEach(l => this.lancamentos.push(l));
     }
 
-    sumario(){
+    sumario() {
         let valorConsolidado = 0;
         this.lancamentos.forEach(l => {
             valorConsolidado += l.valor;
@@ -26,9 +26,9 @@ class CicloFinanceiro {
 }
 
 const salario = new Lancamento('Salario', 60000);
-const contaDeAgua = new Lancamento ('Agua', -300);
+const contaDeAgua = new Lancamento('Agua', -300);
 
-const contas = new CicloFinanceiro (6, 2019);
+const contas = new CicloFinanceiro(6, 2019);
 
-contas.addLancamentos(salario,contaDeAgua);
-console.log(contas.sumario())
+contas.addLancamentos(salario, contaDeAgua);
+console.log(contas.sumario());
