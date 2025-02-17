@@ -1,5 +1,5 @@
 
-Array.prototype.map2 = function(callback) {//Aqui estamos criando uma função map2 que é um método de Array
+Array.prototype.map2 = function(callback) {
     const novoArray = [];
     for (let i = 0; i < this.length; i++) {
         novoArray.push(callback(this[i],i,this));
@@ -17,6 +17,6 @@ const carrinho = [//Aspas simples delimitam strings como todo, cada atributo é 
 // Retornar um array apenas com os preços
 
 let precos = carrinho.map2(function(e) {
-    return JSON.parse(e).preco; //
+    return JSON.parse(e).preco;
 });
 console.log(precos); 
