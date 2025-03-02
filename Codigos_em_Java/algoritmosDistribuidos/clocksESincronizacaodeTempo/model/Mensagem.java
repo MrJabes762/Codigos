@@ -7,6 +7,8 @@ public class Mensagem {
     private String destinatario;
     private String data;
 
+    public Mensagem() {
+    }
 
     public Mensagem(String titulo, String conteudo, String remetente, String destinatario, String data) {
         setTitulo(titulo);

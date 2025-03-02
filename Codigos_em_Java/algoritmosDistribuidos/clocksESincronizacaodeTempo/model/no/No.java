@@ -1,6 +1,6 @@
 package model.no;
 
-public abstract class ClockGeral {
+public abstract class No {
     
     private static int contador;
 
@@ -9,6 +9,6 @@ public abstract class ClockGeral {
     }
 
     protected static void setContador(int contador) {
-        ClockGeral.contador = contador;
+        No.contador = contador;
     }
 }

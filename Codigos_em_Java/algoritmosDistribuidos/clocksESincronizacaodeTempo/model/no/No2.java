@@ -2,12 +2,13 @@ package model.no;
 
 import model.Mensagem;
 
-public class No2 extends ClockGeral {
+public class No2 extends No {
     private Mensagem messagem;
-    private int contadorlocal2;
+    private static int contadorlocal2;
 
     public No2() {
         setContadorlocal2(getContador());
+        setMessagem(new Mensagem());
     }
 
     public Mensagem getMessagem() {

@@ -2,12 +2,14 @@ package model.no;
 
 import model.Mensagem;
 
-public class No1 extends ClockGeral{
+public class No1 extends No{
+
     private Mensagem messagem;
-    private int contadorlocal1;
+    private static int contadorlocal1;
 
     public No1() {
-        setContador(getContador());
+        setContadorlocal1(getContador());
+        setMessagem(new Mensagem ());
     }
 
     public Mensagem getMessagem() {
@@ -18,11 +20,11 @@ public class No1 extends ClockGeral{
         this.messagem = messagem;
     }
 
-    public int getContadorlocal1() {
+    public static int getContadorlocal1() {
         return contadorlocal1;
     }
 
-    public void setContadorlocal1(int contadorlocal1) {
-        this.contadorlocal1 = contadorlocal1;
+    public static void setContadorlocal1(int contadorlocal1) {
+        No1.contadorlocal1 = contadorlocal1;
     }
 }
