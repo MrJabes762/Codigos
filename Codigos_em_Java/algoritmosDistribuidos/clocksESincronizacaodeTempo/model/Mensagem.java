@@ -1,21 +1,23 @@
 package model;
 
+import model.no.No;
+
 public class Mensagem {
     private String titulo;
     private String conteudo;
-    private String remetente;
-    private String destinatario;
-    private String data;
+    private No remetente;
+    private No destinatario;
+    private long timeStamp;
 
     public Mensagem() {
     }
 
-    public Mensagem(String titulo, String conteudo, String remetente, String destinatario, String data) {
+
+    public Mensagem(String titulo, String conteudo, No remetente, No destinatario) {
         setTitulo(titulo);
         setConteudo(conteudo);
         setRemetente(remetente);
         setDestinatario(destinatario);
-        setData(data);
     }
 
 
@@ -35,27 +37,40 @@ public class Mensagem {
         this.conteudo = conteudo;
     }
 
-    public String getRemetente() {
+    public No getRemetente() {
         return this.remetente;
     }
 
-    public void setRemetente(String remetente) {
+    public void setRemetente(No remetente) {
         this.remetente = remetente;
     }
 
-    public String getDestinatario() {
+
+    public No getDestinatario() {
         return this.destinatario;
     }
 
-    public void setDestinatario(String destinatario) {
+    public void setDestinatario(No destinatario) {
         this.destinatario = destinatario;
     }
 
-    public String getData() {
-        return this.data;
+    public long getTimeStamp() {
+        return this.timeStamp;
     }
 
-    public void setData(String data) {
-        this.data = data;
+    public void setTimeStamp(long timeStamp) {
+        this.timeStamp = timeStamp;
     }
+
+    @Override
+    public String toString() {
+        return "{" +
+            " titulo='" + getTitulo() + "'" +
+            ", conteudo='" + getConteudo() + "'" +
+            ", remetente='" + getRemetente().toString() + "'" +
+            ", destinatario='" + getDestinatario().toString() + "'" +
+            ", timeStamp='" + getTimeStamp() + "'" +
+            "}";
+    }
+    
 }
