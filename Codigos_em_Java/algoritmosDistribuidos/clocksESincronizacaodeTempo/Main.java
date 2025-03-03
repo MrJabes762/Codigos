@@ -9,6 +9,12 @@ public class Main {
         SistemaDistribuidodeClocksESincronizacaoDetempo sistema = new SistemaDistribuidodeClocksESincronizacaoDetempo();
         no1.setMessagem(sistema.criarMensagem("Mensagem Exemplo", "Mensagem Conteudo"));
         no1.enviarMensagem(sistema, no3);
-        
+        no3.receberMensagem(no1.getMessagem());
+        no2.setMessagem(sistema.criarMensagem("Outra Mensagem", "Outro Conteudo"));
+        no2.enviarMensagem(sistema, no1);
+        no1.receberMensagem(no2.getMessagem());
+        no3.setMessagem(sistema.criarMensagem("Mais uma Mensagem", "Mais um Conteudo"));
+        no3.enviarMensagem(sistema, no2);
+        no2.receberMensagem(no3.getMessagem());
     }
 }

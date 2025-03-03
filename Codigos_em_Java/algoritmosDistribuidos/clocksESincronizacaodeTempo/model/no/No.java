@@ -17,11 +17,11 @@ public class No {
         No.contador = contador;
     }
 
-    protected String getIdentificacao() {
+    public String getIdentificacao() {
         return this.identificacao;
     }
 
-    protected void setIdentificacao(String identificacao) {
+    public void setIdentificacao(String identificacao) {
         this.identificacao = identificacao;
     }
 

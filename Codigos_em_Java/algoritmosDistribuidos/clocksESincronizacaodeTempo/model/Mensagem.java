@@ -1,25 +1,27 @@
 package model;
 
-import model.no.No;
+import model.no.No1;
 
 public class Mensagem {
     private String titulo;
     private String conteudo;
-    private No remetente;
-    private No destinatario;
+    private No1 remetente;
+    private No1 destinatario;
     private long timeStamp;
 
     public Mensagem() {
     }
 
-
-    public Mensagem(String titulo, String conteudo, No remetente, No destinatario) {
+    public Mensagem(String titulo, String conteudo) {
         setTitulo(titulo);
         setConteudo(conteudo);
-        setRemetente(remetente);
-        setDestinatario(destinatario);
     }
 
+    public Mensagem(String titulo, String conteudo, long timeStamp) {
+        setTitulo(titulo);
+        setConteudo(conteudo);
+        setTimeStamp(timeStamp);
+    }
 
     public String getTitulo() {
         return this.titulo;
@@ -37,20 +39,19 @@ public class Mensagem {
         this.conteudo = conteudo;
     }
 
-    public No getRemetente() {
+    public No1 getRemetente() {
         return this.remetente;
     }
 
-    public void setRemetente(No remetente) {
+    public void setRemetente(No1 remetente) {
         this.remetente = remetente;
     }
 
-
-    public No getDestinatario() {
+    public No1 getDestinatario() {
         return this.destinatario;
     }
 
-    public void setDestinatario(No destinatario) {
+    public void setDestinatario(No1 destinatario) {
         this.destinatario = destinatario;
     }
 
@@ -67,10 +68,9 @@ public class Mensagem {
         return "{" +
             " titulo='" + getTitulo() + "'" +
             ", conteudo='" + getConteudo() + "'" +
-            ", remetente='" + getRemetente().toString() + "'" +
-            ", destinatario='" + getDestinatario().toString() + "'" +
+            ", remetente='" + (getRemetente() != null ? getRemetente().getIdentificacao() : "null") + "'" +
+            ", destinatario='" + (getDestinatario() != null ? getDestinatario().getIdentificacao() : "null") + "'" +
             ", timeStamp='" + getTimeStamp() + "'" +
             "}";
     }
-    
 }

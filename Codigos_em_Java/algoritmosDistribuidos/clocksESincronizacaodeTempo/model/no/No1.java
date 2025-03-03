@@ -12,7 +12,7 @@ public class No1 extends No{
     public No1(String identificacao) {
         super(identificacao);
         setContadorlocal1(getContador());
-        setMessagem(new Mensagem ());
+        setMessagem(new Mensagem());
     }
 
     public Mensagem getMessagem() {
@@ -29,7 +29,12 @@ public class No1 extends No{
         setSistema(sistema);
         getSistema().enviarMensagem(getMessagem(), destinatario);
     }
-    
+
+    public void receberMensagem(Mensagem mensagem) {
+        setSistema(new SistemaDistribuidodeClocksESincronizacaoDetempo());
+        getSistema().atualzarClock(mensagem);
+        setMessagem(mensagem);
+    }
 
     public static int getContadorlocal1() {
         return contadorlocal1;
@@ -38,16 +43,18 @@ public class No1 extends No{
     public static void setContadorlocal1(int contadorlocal1) {
         No1.contadorlocal1 = contadorlocal1;
     }
+
     @Override
     public String toString() {
         return super.toString() + "{" +
-            " messagem='" + getMessagem() + "'" +
-            "}" + " { " + " Contador Local=" + getContadorlocal1();
+            " messagem='" + getMessagem().toString() + "'" +
+            "}" + " { " + " Contador Local= " + getContadorlocal1();
     }
 
     public SistemaDistribuidodeClocksESincronizacaoDetempo getSistema() {
         return sistema;
     }
+
     public void setSistema(SistemaDistribuidodeClocksESincronizacaoDetempo sistema) {
         this.sistema = sistema;
     }
