@@ -1,5 +1,5 @@
 
-const carrinho = [//Aspas simples delimitam strings como todo, cada atributo é delimitado por aspas duplas
+export const carrinho = [//Aspas simples delimitam strings como todo, cada atributo é delimitado por aspas duplas
     '{"nome": "Borracha", "preco": 3.45}',
     '{"nome": "Caderno", "preco": 13.90}',
     '{"nome": "Kit de lápis", "preco": 41.22}',

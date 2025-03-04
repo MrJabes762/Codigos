@@ -6,7 +6,7 @@
 
 // O resultado da primeira iteração é passado para a segunda iteracao e assim por diante até o limite do array.
 
-let alunos = [
+export let alunos = [
     {nome: 'Lucas', nota:8.1, bolsista:false},
     {nome: 'João', nota:9, bolsista:false},
     {nome: 'Carlos', nota:8, bolsista:false},
