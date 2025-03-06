@@ -18,7 +18,6 @@ public class Processo {
         setVizinhos(new ArrayList<>());
     }
 
-
     public Processo() {
     }
 
@@ -26,33 +25,38 @@ public class Processo {
         getVizinhos().add(vizinho);
     }
 
-    public void recebendoMensagem(String mensagem) {
-        if(isGravando()){
-            getCanalEstado().add(mensagem);
-        }
-        System.out.println("Processo " + getId() + ": " + getCanalEstado());
+    public String recebendoMensagem(String mensagem) {
+        getCanalEstado().add(mensagem);
+        return "Processo " + getId() + ": " + getCanalEstado();
     }
 
-    public void recebeMarcador (){
-        if(!isGravando()){
+    public void recebeMarcador() {
+        if (!isGravando()) {
             setGravando(true);
             if(isGravando()){
                 salvaEstado();
-                enviaMarcador();
+                enviaMarcador(new ArrayList<>());
             }
         }
     }
 
-    private void salvaEstado (){
+    private void salvaEstado() {
         getEstado().add("Estado do Processo: " + toString());
     }
-    private void enviaMarcador (){
-        getVizinhos().forEach(vizinho -> vizinho.recebeMarcador());
+
+    private void enviaMarcador(List<Integer> visitados) {
+        visitados.add(getId());
+        for (Processo vizinho : getVizinhos()) {
+            if (!visitados.contains(vizinho.getId())) {
+                vizinho.recebeMarcador();
+            }
+        }
     }
 
     public String printEstado() {
-        return "Estado do processo: " + getEstado() + " Estado do Canal do Processo: " + getCanalEstado();
+        return "Estado do processo: " + String.join(", ", getEstado()) + " Estado do Canal do Processo: " + String.join(", ", getCanalEstado());
     }
+
     @Override
     public String toString() {
         return "{" +
@@ -60,7 +64,7 @@ public class Processo {
             ", gravando='" + isGravando() + "'" +
             ", estado='" + getEstado() + "'" +
             ", canalEstado='" + getCanalEstado() + "'" +
-            ", vizinhos='" + getVizinhos() + "'" +
+            ", vizinhos='" + getVizinhos().stream().map(Processo::getId).toList() + "'" +
             "}";
     }
 
@@ -75,12 +79,13 @@ public class Processo {
     public boolean isGravando() {
         return this.gravando;
     }
+
     public void setGravando(boolean gravando) {
         this.gravando = gravando;
     }
 
     public List<String> getEstado() {
-        return this.estado;
+        return estado;
     }
 
     public void setEstado(List<String> estado) {
@@ -88,7 +93,7 @@ public class Processo {
     }
 
     public List<String> getCanalEstado() {
-        return this.canalEstado;
+        return canalEstado;
     }
 
     public void setCanalEstado(List<String> canalEstado) {
@@ -96,11 +101,10 @@ public class Processo {
     }
 
     public List<Processo> getVizinhos() {
-        return this.vizinhos;
+        return vizinhos;
     }
 
     public void setVizinhos(List<Processo> vizinhos) {
         this.vizinhos = vizinhos;
     }
-
 }
