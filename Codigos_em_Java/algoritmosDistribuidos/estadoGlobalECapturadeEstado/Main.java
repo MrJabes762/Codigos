@@ -9,7 +9,7 @@ public class Main {
         Processo p2 = new Processo(2);
         Processo p3 = new Processo(3);
 
-        // Cada Processo Terá uma lista de vizinhos previamente adicionada
+        // Cada Processo Terá uma lista de vizinhos previamente preenchida
         p1.adicionarVizinho(p3);
         p1.adicionarVizinho(p2);
         p2.adicionarVizinho(p3);
