@@ -5,17 +5,19 @@ import java.util.List;
 
 import estadoGlobalECapturadeEstado.model.Processo;
 
-//
+// Classe de representação do Objeto No
 public class No {
 
-    private String nome;
-    private int identificador;
-    private int idLocal;
-    private boolean isCoordenador;
-    public static int idCont;
-    private List<No> nosVizinhos;
-    private String notificacao;
+    //Atributos 
+    private String nome;// Nome do no
+    private int identificador;// identificador que será manipulado durante a execução 
+    private int idLocal;// Id do no
+    private boolean isCoordenador;//Variavel de controle para identificação do coordenador 
+    public static int idCont;//seŕa icrementado conforme a criação dos objetos 
+    private List<No> nosVizinhos;// Lista de vizinhos que serão notificados
+    private String notificacao;// a notificação que será atribuida 
 
+    //Construtor 
     public No(String string, int valorIdentificador) {
         setNome(string);
         setIdentificador(valorIdentificador);
@@ -24,7 +26,7 @@ public class No {
         setNotificacao("");
         setIsCoordenador(false);
     }
-
+    //Metodos de acesso 
     public int getIdentificador() {
         return this.identificador;
     }
@@ -77,6 +79,8 @@ public class No {
     public void setNotificacao(String notificacao) {
         this.notificacao = notificacao;
     }
+
+    //To string - para retorar os valores dos atributos 
     @Override
     public String toString() {
         return "{" +
