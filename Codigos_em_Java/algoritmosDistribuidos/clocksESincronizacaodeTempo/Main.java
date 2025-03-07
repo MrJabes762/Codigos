@@ -3,11 +3,15 @@ import service.SistemaDistribuidodeClocksESincronizacaoDetempo;
 
 public class Main {
     public static void main(String[] args) {
+        // Estanciando o Sistema
+        SistemaDistribuidodeClocksESincronizacaoDetempo sistema = new SistemaDistribuidodeClocksESincronizacaoDetempo();
+
+        //Criação de 3 nos conforme solicitado
         No1 no1 = new No1("Casa");
         No1 no2 = new No1("Trabalho");
         No1 no3 = new No1("Escritório");
-        SistemaDistribuidodeClocksESincronizacaoDetempo sistema = new SistemaDistribuidodeClocksESincronizacaoDetempo();
-        
+
+        // Exemplos de Cenários de envios recebimentos de mensagem 
         no1.setMensagem(sistema.criarMensagem("Mensagem Exemplo", "Mensagem Conteúdo"));
         no1.enviarMensagem(sistema, no3);
         no3.receberMensagem(sistema, no1.getMensagem());
