@@ -36,18 +36,23 @@ public class SistemaDistribuidodeClocksESincronizacaoDetempo {
         No.contador++;// contador imcrementado 
         //set das informações;
         mensagem.setDestinatario(destinatario);
-        mensagem.setTimeStamp(No.contador);
+        mensagem.setTimeStamp(No.contador);// inclusao do timestamp
+        //destinatario recemento a mesagem com a propria e o "Autorefenciaento do sistema"
         destinatario.receberMensagem(this, mensagem);
         setMensagem(mensagem);
         System.out.println("Mensagem enviada " + mensagem.toString());
-        return mensagem;
+        return mensagem;// retorno da mensagem
     }
 
+    // Metodo de Atualização do Clock 
     public void atualizarClock(Mensagem mensagemRecebida) {
-        No.contador = (int) (Math.max(No.contador, mensagemRecebida.getTimeStamp()) + 1);
+        // Setando o contador com base no timestamp da mensagem recebida somando + 1
+        No.contador = (int) (Math.max(No.contador, mensagemRecebida.getTimeStamp()) + 1); 
+        // printando a mensagem recebida
         System.out.println("Mensagem Recebida " + mensagemRecebida.toString());
     }
 
+    //Métodos de Acesso 
     public LocalDate getTimeStampSistema() {
         return this.timeStampSistema;
     }
