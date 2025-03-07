@@ -4,18 +4,18 @@ import algoritmosdeEleicaoBully.exceptions.EventoLimiteExecption;
 import algoritmosdeEleicaoBully.model.No;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
 import java.util.Random;
 
 public class SistemaDeAlgoritmoDeEleicao {
 
     private int contadorDeEventos;
-    private No noCordenador;
     private List<No> listaDeNos;
     private Random rand;
+    private int posicaoCordenador;
 
     public SistemaDeAlgoritmoDeEleicao() {
         setContadorDeEventos(0);
-        setNoCordenador(null);
         setListaDeNos(new ArrayList());
         setRand(new Random());
     }
@@ -26,39 +26,63 @@ public class SistemaDeAlgoritmoDeEleicao {
         return "Nó Criado e Adiconado a lista: " + getListaDeNos().get(no.getIdLocal()).toString();
     }
 
-    public No getNo(int i) {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'getNo'");
+    public String setCoordenador() {
+        int maiorIdentificador = 0;
+        
+        for (int i = 0; i < getListaDeNos().size(); i++) {
+            if ((getListaDeNos().get(i).getIdentificador() > maiorIdentificador) && (getContadorDeEventos() <= 3)) {
+                maiorIdentificador = getListaDeNos().get(i).getIdentificador();
+                setPosicaoCordenador(i);
+            }
+            if (getContadorDeEventos() >= 3 && getListaDeNos().get(i).isIsCoordenador()) {
+                setContadorDeEventos(0);
+                getListaDeNos().get(getPosicaoCordenador()).setIsCoordenador(false);
+            }
+        }
+        getCoordenador().setIsCoordenador(true);
+        return "No coordenador escolhido com base no Identificador: " 
+                    + getCoordenador().getNome()
+                    + notificacao();
     }
 
-    public void setCoordenador() {
-        int maiorIdentificador = 0;
+    public No getNoCordenador(int pos) {
+        return getListaDeNos().get(pos);
+    }
+
+    public String eventoOcorre() throws EventoLimiteExecption {
+        if (getContadorDeEventos() >= 3) {
+            throw new EventoLimiteExecption("Passamos do Limite de eventos para a eleição de um novo coordenador");
+        } else {
+            setContadorDeEventos(contadorDeEventos + 1);
+            getListaDeNos().forEach(no -> no.setIdentificador(no.getIdentificador() * getRand().nextInt(10)));//Simulando a aleatoriedade do maior identificador
+            return "Ocoreu o " + getContadorDeEventos() + "º evento.";
+        }
+    }
+
+    private void carregarListaNoVizinhos() {//Metodo de Adicionar vizinhos 
+        getCoordenador().getNosVizinhos().clear();// limpando a lista 
+        getListaDeNos().forEach(no -> no.setNotificacao(" "));
         for (No no : getListaDeNos()) {
-            if (no.getIdentificador() > maiorIdentificador) {
-                maiorIdentificador = no.getIdentificador();
-                no.setIsCoordenador(true);
-                setNoCordenador(no);
+            if (!getCoordenador().getNosVizinhos().contains(no) && !Objects.equals(getCoordenador(), no)) {// Na lista de vizinhos daquele que é igual será verificado se contem o no viznho ele não é igual ao coordenador 
+               getCoordenador().getNosVizinhos().add(no);//ai é adicionado
             }
         }
     }
 
-    public void eventoOcorre() throws EventoLimiteExecption {
-        if (getContadorDeEventos() >= 3) {
-            throw new EventoLimiteExecption("Passamos da contagem de eventos sera necessario uma nova Eleição");
-        }else{
-            setContadorDeEventos(contadorDeEventos + 1);
-            getListaDeNos().forEach(no -> no.setIdentificador(no.getIdentificador() * getRand().nextInt(1000)));//Simulando a aleatoriedade do maior identificador
-        }
-
+    private String notificacao() {
+        carregarListaNoVizinhos();
+        getCoordenador()
+            .getNosVizinhos()
+            .forEach(noVizinho -> noVizinho.setNotificacao("Atenção o No: " + getCoordenador().getNome() + " é o novo coordenador"));
+        return " e seus vizinhos  " + getCoordenador().getNosVizinhos().stream().map((v) -> v.getNome()).toList() + " Foram notificados";
     }
 
-    public void notificacao() {
-
+    public No coordenadorSaiuDoAr () {
+        return getListaDeNos().remove(getCoordenador().getIdLocal());
     }
 
-    public void removeCoordenador() {
-        getListaDeNos().remove(getNoCordenador().getIdLocal());
-        setCoordenador();
+    private No getCoordenador(){
+        return getListaDeNos().get(getPosicaoCordenador());
     }
 
     public int getContadorDeEventos() {
@@ -85,12 +109,12 @@ public class SistemaDeAlgoritmoDeEleicao {
         this.rand = rand;
     }
 
-    public No getNoCordenador() {
-        return this.noCordenador;
+    public int getPosicaoCordenador() {
+        return posicaoCordenador;
     }
 
-    public void setNoCordenador(No noCordenador) {
-        this.noCordenador = noCordenador;
+    public void setPosicaoCordenador(int posicaoCordenador) {
+        this.posicaoCordenador = posicaoCordenador;
     }
 
 }
