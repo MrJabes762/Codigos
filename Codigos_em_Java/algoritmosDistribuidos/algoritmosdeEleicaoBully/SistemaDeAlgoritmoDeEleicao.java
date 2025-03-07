@@ -16,7 +16,7 @@ public class SistemaDeAlgoritmoDeEleicao {
 
     public SistemaDeAlgoritmoDeEleicao() {
         setContadorDeEventos(0);
-        setListaDeNos(new ArrayList());
+        setListaDeNos(new ArrayList<>());
         setRand(new Random());
     }
 
@@ -27,18 +27,29 @@ public class SistemaDeAlgoritmoDeEleicao {
     }
 
     public String setCoordenador() {
+        if (getListaDeNos().isEmpty()) {
+            return "Lista de nós está vazia. Não é possível definir um coordenador.";
+        }
+
         int maiorIdentificador = 0;
-        
+        int novaPosicaoCoordenador = -1;
+
         for (int i = 0; i < getListaDeNos().size(); i++) {
-            if ((getListaDeNos().get(i).getIdentificador() > maiorIdentificador) && (getContadorDeEventos() <= 3)) {
+            if (getListaDeNos().get(i).getIdentificador() > maiorIdentificador) {
                 maiorIdentificador = getListaDeNos().get(i).getIdentificador();
-                setPosicaoCordenador(i);
-            }
-            if (getContadorDeEventos() >= 3 && getListaDeNos().get(i).isIsCoordenador()) {
-                setContadorDeEventos(0);
-                getListaDeNos().get(getPosicaoCordenador()).setIsCoordenador(false);
+                novaPosicaoCoordenador = i;
             }
         }
+
+        if (novaPosicaoCoordenador == -1) {
+            return "Não foi possível encontrar um novo coordenador.";
+        }
+
+        if (getPosicaoCordenador() >= 0 && getPosicaoCordenador() < getListaDeNos().size()) {
+            getListaDeNos().get(getPosicaoCordenador()).setIsCoordenador(false);
+        }
+
+        setPosicaoCordenador(novaPosicaoCoordenador);
         getCoordenador().setIsCoordenador(true);
         return "No coordenador escolhido com base no Identificador: " 
                     + getCoordenador().getNome()
