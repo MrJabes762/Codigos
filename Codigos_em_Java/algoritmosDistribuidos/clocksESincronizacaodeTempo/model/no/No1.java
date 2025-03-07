@@ -3,52 +3,56 @@ package model.no;
 import model.Mensagem;
 import service.SistemaDistribuidodeClocksESincronizacaoDetempo;
 
-public class No1 extends No{
+// Classe filha de No que implementará o corpo do nó 
+public class No1 extends No {
 
-    private Mensagem messagem;
-    private static int contadorlocal1;
+    // Objeto Mensagem que faz parte do nó
+    private Mensagem mensagem;
+    // Representando o contador local de cada No
+    private static int contadorLocal1;
+    // o Objeto sistema que sera utilizado pelo no 
     private SistemaDistribuidodeClocksESincronizacaoDetempo sistema;
 
+    private Mensagem mensagemRecebida;
+
     public No1(String identificacao) {
-        super(identificacao);
-        setContadorlocal1(getContador());
-        setMessagem(new Mensagem());
+        super(identificacao); // Passando a identificacao para o pai 
+        setContadorLocal1(getContador()); // Associando o contador local ao do pai
+        setMensagem(new Mensagem()); // Uma mensagem com um construtor vazio
     }
 
-    public Mensagem getMessagem() {
-        return messagem;
-    }
-
-    public void setMessagem(Mensagem messagem) {
-        this.messagem = messagem;
-    }
-
-    public void enviarMensagem (SistemaDistribuidodeClocksESincronizacaoDetempo sistema, No1 destinatario){
-        getMessagem().setRemetente(this);
+    // Método de Envio que recebe o sistema que estara executando no momento e o No de destinatario
+    public void enviarMensagem(SistemaDistribuidodeClocksESincronizacaoDetempo sistema, No1 destinatario) {
+        // Setando o remetente para o objeto "Autoreferenciado" em tempo de execução 
+        getMensagem().setRemetente(this);
+        // Só para mostrar os valores dos atributos do objeto nesse momento 
         System.out.println(toString());
         setSistema(sistema);
-        getSistema().enviarMensagem(getMessagem(), destinatario);
+        // O no solicita ao sistema para enviar a mensagem ao destinatario
+        getSistema().enviarMensagem(getMensagem(), destinatario);
     }
 
-    public void receberMensagem(Mensagem mensagem) {
-        setSistema(new SistemaDistribuidodeClocksESincronizacaoDetempo());
-        getSistema().atualzarClock(mensagem);
-        setMessagem(mensagem);
+    // Método de Recebimento de Mensagem 
+    public void receberMensagem(SistemaDistribuidodeClocksESincronizacaoDetempo sistema, Mensagem mensagem) {
+        setSistema(sistema);//Setando o sistema em execução 
+        getSistema().atualizarClock(mensagem);//evocando a atualização do clock
+        setMensagemRecebida(mensagem);//setando a mensagem recebida 
+    }
+    //Metodos de acesso 
+    public Mensagem getMensagem() {
+        return mensagem;
     }
 
-    public static int getContadorlocal1() {
-        return contadorlocal1;
+    public void setMensagem(Mensagem mensagem) {
+        this.mensagem = mensagem;
     }
 
-    public static void setContadorlocal1(int contadorlocal1) {
-        No1.contadorlocal1 = contadorlocal1;
+    public static int getContadorLocal1() {
+        return contadorLocal1;
     }
 
-    @Override
-    public String toString() {
-        return super.toString() + "{" +
-            " messagem='" + getMessagem().toString() + "'" +
-            "}" + " { " + " Contador Local= " + getContadorlocal1();
+    public static void setContadorLocal1(int contadorLocal1) {
+        No1.contadorLocal1 = contadorLocal1;
     }
 
     public SistemaDistribuidodeClocksESincronizacaoDetempo getSistema() {
@@ -59,4 +63,19 @@ public class No1 extends No{
         this.sistema = sistema;
     }
 
+    public Mensagem getMensagemRecebida() {
+        return this.mensagemRecebida;
+    }
+
+    public void setMensagemRecebida(Mensagem mensagemRecebida) {
+        this.mensagemRecebida = mensagemRecebida;
+    }
+    // To String que retorna o estado dos atributos
+    @Override
+    public String toString() {
+        return "{" +
+            " mensagem='" + getMensagem() + "'" +
+            ", sistema='" + getSistema() + "'" +
+            "}";
+    }
 }
