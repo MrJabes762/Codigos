@@ -62,7 +62,6 @@ public class Processo {
         return "{" +
             " id='" + getId() + "'" +
             ", gravando='" + isGravando() + "'" +
-            ", estado='" + getEstado() + "'" +
             ", canalEstado='" + getCanalEstado() + "'" +
             ", vizinhos='" + getVizinhos().stream().map(Processo::getId).toList() + "'" +
             "}";
