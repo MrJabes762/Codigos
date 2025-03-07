@@ -2,13 +2,17 @@ package model;
 
 import model.no.No1;
 
+// Modelo de representação do Objeto Mensagem 
 public class Mensagem {
+    
+    //Atributos 
     private String titulo;
     private String conteudo;
     private No1 remetente;
     private No1 destinatario;
     private long timeStamp;
 
+    //Cosntrutores Sobrecarregados
     public Mensagem() {
     }
 
@@ -23,6 +27,7 @@ public class Mensagem {
         setTimeStamp(timeStamp);
     }
 
+    // Métodos de Acesso 
     public String getTitulo() {
         return this.titulo;
     }
@@ -63,6 +68,7 @@ public class Mensagem {
         this.timeStamp = timeStamp;
     }
 
+    //To String que retorna os valores dos Atributos em String
     @Override
     public String toString() {
         return "{" +
