@@ -5,8 +5,8 @@ const stompClient = new StompJs.Client({
 stompClient.onConnect = (frame) => {
     setConnected(true);
     console.log('Connected: ' + frame);
-    stompClient.subscribe('/topic/greetings', (greeting) => {
-        showGreeting(JSON.parse(greeting.body).content);
+    stompClient.subscribe('/topic/produtos', (produtos) => {
+        showGreeting(JSON.parse(produtos.body).content);
     });
 };
 
@@ -28,7 +28,7 @@ function setConnected(connected) {
     else {
         $("#conversation").hide();
     }
-    $("#greetings").html("");
+    $("#produtos").html("");
 }
 
 function connect() {
@@ -44,17 +44,17 @@ function disconnect() {
 function sendName() {
     stompClient.publish({
         destination: "/app/hello",
-        body: JSON.stringify({'name': $("#name").val()})
+        body: JSON.stringify({'produto': $("#produto").val()})
     });
 }
 
-function showGreeting(message) {
-    $("#greetings").append("<tr><td>" + message + "</td></tr>");
+function showProdutos(message) {
+    $("#produtos").append("<tr><td>" + message + "</td></tr>");
 }
 
 $(function () {
     $("form").on('submit', (e) => e.preventDefault());
-    $( "#connect" ).click(() => connect());
-    $( "#disconnect" ).click(() => disconnect());
-    $( "#send" ).click(() => sendName());
+    $("#connect").click(() => connect());
+    $("#disconnect").click(() => disconnect());
+    $("#send").click(() => sendName());
 });

@@ -1,4 +1,4 @@
-const aprovados = ['luiz', 'lsSantos', 'Elivaldo', 'Fernando'];
+export const aprovados = ['luiz', 'lsSantos', 'Elivaldo', 'Fernando'];
 
 // O forEach percorre todos os elementos do array e executa uma instrução para cada elemento
 // É um loop de repetição mais coeso

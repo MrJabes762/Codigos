@@ -9,17 +9,17 @@
     <script src="/app.js"></script>
 </head>
 <body>
-<noscript><h2 style="color: #ff0000">Seems your browser doesn't support Javascript! Websocket relies on Javascript being
-    enabled. Please enable
-    Javascript and reload this page!</h2></noscript>
+<noscript><h2 style="color: #ff0000">Parece que seu navegador não suporta Javascript! Websocket depende de Javascript estar
+    habilitado. Por favor, habilite
+    Javascript e recarregue esta página!</h2></noscript>
 <div id="main-content" class="container">
     <div class="row">
         <div class="col-md-6">
             <form class="form-inline">
                 <div class="form-group">
-                    <label for="connect">WebSocket connection:</label>
-                    <button id="connect" class="btn btn-default" type="submit">Connect</button>
-                    <button id="disconnect" class="btn btn-default" type="submit" disabled="disabled">Disconnect
+                    <label for="connect">Conexão WebSocket:</label>
+                    <button id="connect" class="btn btn-default" type="submit">Conectar</button>
+                    <button id="disconnect" class="btn btn-default" type="submit" disabled="disabled">Desconectar
                     </button>
                 </div>
             </form>
@@ -27,10 +27,10 @@
         <div class="col-md-6">
             <form class="form-inline">
                 <div class="form-group">
-                    <label for="name">What is your name?</label>
-                    <input type="text" id="name" class="form-control" placeholder="Your name here...">
+                    <label for="produto">Qual é o seu nome?</label>
+                    <input type="text" id="produto" class="form-control" placeholder="produto é">
                 </div>
-                <button id="send" class="btn btn-default" type="submit">Send</button>
+                <button id="send" class="btn btn-default" type="submit">Enviar</button>
             </form>
         </div>
     </div>
@@ -39,10 +39,10 @@
             <table id="conversation" class="table table-striped">
                 <thead>
                 <tr>
-                    <th>Greetings</th>
+                    <th>Produtos</th>
                 </tr>
                 </thead>
-                <tbody id="greetings">
+                <tbody id="produtos">
                 </tbody>
             </table>
         </div>

@@ -2,7 +2,7 @@
 // Sempre que for transformar um array em outro array com a mesma quantidade de elementos, porém com os mesmos elementos, usamos o map (alterados ou não).
 
 
-const produtos = [
+export const produtos = [
     { nome: 'Notebook', preco: 2499, fragil: true },
     { nome: 'Ipad Pro', preco: 4199, fragil: true },
     { nome: 'Copo de Vidro', preco: 12.49, fragil: true },

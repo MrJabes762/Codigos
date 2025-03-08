@@ -1,3 +1,4 @@
+import { carrinho } from "./map2";
 
 Array.prototype.map2 = function(callback) {
     const novoArray = [];
@@ -6,13 +7,6 @@ Array.prototype.map2 = function(callback) {
     }
     return novoArray;
 }
-
-const carrinho = [//Aspas simples delimitam strings como todo, cada atributo é delimitado por aspas duplas
-    '{"nome": "Borracha", "preco": 3.45}',
-    '{"nome": "Caderno", "preco": 13.90}',
-    '{"nome": "Kit de lápis", "preco": 41.22}',
-    '{"nome": "Caneta", "preco": 7.50}'
-];
 
 // Retornar um array apenas com os preços
 
