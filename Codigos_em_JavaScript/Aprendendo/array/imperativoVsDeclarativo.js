@@ -1,4 +1,4 @@
-import { alunos } from "./array/reduce/reduce1";
+import { alunos } from "./reduce/reduce1";
 
 // Imperativo - Menos reutilização de código, realiza mais passos: busca da nota e reliza atribuicao + soma
 let total1 = 0;
