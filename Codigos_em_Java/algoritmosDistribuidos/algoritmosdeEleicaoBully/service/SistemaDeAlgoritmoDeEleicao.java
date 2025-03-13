@@ -63,22 +63,23 @@ public class SistemaDeAlgoritmoDeEleicao {
         //setando o novo coordenador
         getCoordenador().setIsCoordenador(true);
         //String de retorno 
-        return "No coordenador escolhido com base no Identificador: " 
-                    + getCoordenador().getNome()// exibe o nome do cood
-                    + notificacao();// Notifica os nos vizinhos
+        return "No coordenador escolhido com base no Identificador: "
+                + getCoordenador().getNome()// exibe o nome do cood
+                + notificacao();// Notifica os nos vizinhos
     }
+
     //Metodo de simulaçao da ocorrencia de eventos 
     public String eventoOcorre() throws EventoLimiteExecption {
         if (getContadorDeEventos() >= 3) {// o contador vai ate 3 eventos e lança a excessão 
             throw new EventoLimiteExecption("Passamos do Limite de eventos para a eleição de um novo coordenador");
-        } else {// se nao 
-            //o contador é imcrementado
-            setContadorDeEventos(contadorDeEventos + 1);
-            //E o identificador e alterado conforme a execução do evento 
-            //para aleatorizar os valores durante a execução 
-            getListaDeNos().forEach(no -> no.setIdentificador(no.getIdentificador() * getRand().nextInt(10)));//Simulando a aleatoriedade do maior identificador
-            return "Ocoreu o " + getContadorDeEventos() + "º evento.";
         }
+        //o contador é imcrementado
+        setContadorDeEventos(contadorDeEventos + 1);
+        //E o identificador e alterado conforme a execução do evento 
+        //para aleatorizar os valores durante a execução 
+        getListaDeNos().forEach(no -> no.setIdentificador(no.getIdentificador() * getRand().nextInt(10)));//Simulando a aleatoriedade do maior identificador
+        return "Ocoreu o " + getContadorDeEventos() + "º evento.";
+
     }
 
     // Metodo de carregamento de lista de nos vizinhos
@@ -86,9 +87,9 @@ public class SistemaDeAlgoritmoDeEleicao {
         getCoordenador().getNosVizinhos().clear();// limpando a lista 
         getListaDeNos().forEach(no -> no.setNotificacao(" "));// limpando as notificacoes
         for (No no : getListaDeNos()) {
-    // Na lista de vizinhos daquele que é igual será verificado se contem o no viznho ele não é igual ao coordenador 
+            // Na lista de vizinhos daquele que é igual será verificado se contem o no viznho ele não é igual ao coordenador 
             if (!getCoordenador().getNosVizinhos().contains(no) && !Objects.equals(getCoordenador(), no)) {
-               getCoordenador().getNosVizinhos().add(no);//ai é adicionado
+                getCoordenador().getNosVizinhos().add(no);//ai é adicionado
             }
         }
     }
@@ -97,18 +98,24 @@ public class SistemaDeAlgoritmoDeEleicao {
     private String notificacao() {
         carregarListaNoVizinhos();//Primeiro carrega a lista 
         getCoordenador()// PAra cada visnho apenas uma notificação simbolica 
-            .getNosVizinhos()
-            .forEach(noVizinho -> noVizinho.setNotificacao("Atenção o No: " + getCoordenador().getNome() + " é o novo coordenador"));
+                .getNosVizinhos()
+                .forEach(noVizinho -> noVizinho.setNotificacao("Atenção o No: " + getCoordenador().getNome() + " é o novo coordenador"));
         //retorno de uma string para o setCordenador
-        return " e seus vizinhos  " + getCoordenador().getNosVizinhos().stream().map((v) -> v.getNome()).toList() + " Foram notificados";
+        return " e seus vizinhos  " + getCoordenador()
+            .getNosVizinhos()
+            .stream()
+            .map((v) -> v.getNome())
+            .toList() 
+            + " Foram notificados";
     }
+
     //Metodo de simulação de um coordenador saindo do ar 
-    public No coordenadorSaiuDoAr () {
+    public No coordenadorSaiuDoAr() {
         return getListaDeNos().remove(getCoordenador().getIdLocal());
     }
 
     // Pega o coordenador com base na posicao setada e pega na lista 
-    private No getCoordenador(){
+    private No getCoordenador() {
         return getListaDeNos().get(getPosicaoCordenador());
     }
 
