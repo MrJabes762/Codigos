@@ -4,6 +4,7 @@ import { Text, SafeAreaView} from 'react-native';
 import { stylesApp } from './styleApp';
 import PrimeiroComponente from './src/components/componente1/Componente1';
 import SegundoComponente from './src/components/componente2/Componente2';
+import Comp, { Comp4, Comp5 } from './src/components/Multi/Multi'; // Importando o componente Comp principal e os componentes Comp4 e Comp5 
 
 
 export default function App() {
@@ -12,6 +13,9 @@ export default function App() {
       <Text>Open up App.js to start working on your app!</Text>
       <PrimeiroComponente/>
       <SegundoComponente/>
+      <Comp/>
+      <Comp4/>
+      <Comp5/>
     </SafeAreaView>
   );
 }
