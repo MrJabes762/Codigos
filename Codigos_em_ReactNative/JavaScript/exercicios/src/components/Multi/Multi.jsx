@@ -1,10 +1,10 @@
 import React from "react";
 import { Text } from "react-native";
 
-//Exportando varios componentes
-//O export funciona semelhante ao emcapulamento
-// Ja  Export defuolt exporta o componente principal (padrao)
-//O export default pode ser importado com qualquer nome
+// Exportando varios componentes
+// O export funciona semelhante ao emcapulamento
+// Ja  Export default exporta o componente principal (padrao)
+// O export default pode ser importado com qualquer nome
 
 
 export default function Comp() {
