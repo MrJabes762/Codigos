@@ -1,5 +1,6 @@
 import React from "react";
 import { Text } from "react-native";
+import Estilo from "./estiloPadrao";
 
 // Exportando varios componentes
 // O export funciona semelhante ao emcapulamento
@@ -9,18 +10,18 @@ import { Text } from "react-native";
 
 export default function Comp() {
     return (
-        <Text>Terceiro #Oficial</Text>
+        <Text style = {Estilo.textoGrande}>Terceiro #Oficial</Text>
     );
 };
 
 export function Comp4() {
     return (
-        <Text>Quarto Componente</Text>
+        <Text style = {Estilo.textoGrande}> Quarto Componente</Text>
     );
 };
 
 export function Comp5() {
     return (
-        <Text>Quinto Componente</Text>
+        <Text style = {Estilo.textoGrande}> Quinto Componente</Text>
     );
 };
