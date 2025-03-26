@@ -5,6 +5,8 @@ import { stylesApp } from './styleApp';
 import PrimeiroComponente from './src/components/componente1/Componente1';
 import SegundoComponente from './src/components/componente2/Componente2';
 import CompPadrao, { Comp4, Comp5 } from './src/components/Multi/Multi'; // Importando o componente Comp principal e os componentes Comp4 e Comp5 
+import MinMax from './src/components/minMax/MinMax';
+import Aleatorio from './src/components/aleatorio /Aleatorio';
 
 
 export default function App() {
@@ -16,6 +18,9 @@ export default function App() {
       <CompPadrao/>
       <Comp4/>
       <Comp5/>
+      <MinMax min= {4} max = {3}/>a
+      <Aleatorio min = {1} max = {60}/>
+      <Aleatorio min = {1} max = {40}/>
     </SafeAreaView>
   );
 }
