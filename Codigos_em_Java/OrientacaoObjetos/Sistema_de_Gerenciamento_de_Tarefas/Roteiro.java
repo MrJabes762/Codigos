@@ -1,12 +1,43 @@
+import controller.TarefasController;
+import model.Prioridade;
+import model.Tarefa;
+
 public class Roteiro {
     public static void main(String[] args) {
-        SistemaDeGerenciamentoDeTarefas sistema = new SistemaDeGerenciamentoDeTarefas ();
-        sistema.cadastrarTarefas(new Tarefa ("Andar de Bike", "Pessoal", "Andar de Bike as 13:00", "Santo Antônio de Jesus", false));
-        sistema.cadastrarTarefas(new Tarefa ("Limpar a Casa", "Pessoal", "Limpar a Casa as 20:00", "Santo Antônio de Jesus", false));
-        sistema.cadastrarTarefas(new Tarefa ("Estudar Java", "Estudos", "Estudar Java e P.O.O as 7:00", "Santo Antônio de Jesus", false));
-        sistema.cadastrarTarefas(new Tarefa ("Fazer Análise de Dados em Mysql", "Trabalho", "Fazer Análise de dados em MySql as 15:00", "Santo Antônio de Jesus", false));
-        sistema.concluirTarefa ("Andar de Bike");
-        sistema.concluirTarefa ("Estudar Java");
-        sistema.listarTarefas ();
+        
+        // Instancia o controlador de tarefas um front controller
+        // e singleton
+        TarefasController sistema =  TarefasController.getInstance();
+        
+        // Simulação de um Flyweight na criacao de tarefas 
+        // com o mesmo tipo de tarefa
+        String tipoPessoal = "Pessoal";
+        Tarefa tarefa1 = new Tarefa("Andar de Bike", tipoPessoal, Prioridade.URGENTE);
+        Tarefa tarefa2 = new Tarefa("Limpar a Casa", tipoPessoal, Prioridade.ALTA);
+        Tarefa tarefa3 = new Tarefa("Estudar Java", tipoPessoal, Prioridade.BAIXA);
+        Tarefa tarefa4 = new Tarefa("Fazer Análise de Dados em Mysql", tipoPessoal, Prioridade.MEDIA);
+        
+        // Requisiçao ao frontController do tipo POST
+        // para adicionar tarefas
+        System.out.println(sistema.postTarefa(tarefa1));
+        System.out.println(sistema.postTarefa(tarefa2));
+        System.out.println(sistema.postTarefa(tarefa3));
+        System.out.println(sistema.postTarefa(tarefa4));
+
+        // Requisiçao ao frontController do tipo GET
+        System.out.println(sistema.getlistTarefas());
+        tarefa1.setDescricao("Geral");
+        
+        // Requisiçao ao frontController do tipo PUT
+        System.out.println(sistema.putTarefa(tarefa1));
+
+        System.out.println(sistema.concluirTarefa(tarefa1));
+
+        // Requisiçao ao frontController do tipo delete
+        System.out.println(sistema.deleteTarefa(tarefa3));
+
+        // Requisiçao ao frontController do tipo GET
+        // para listar tarefas
+        System.out.println(sistema.getlistTarefas());
     }
 }
