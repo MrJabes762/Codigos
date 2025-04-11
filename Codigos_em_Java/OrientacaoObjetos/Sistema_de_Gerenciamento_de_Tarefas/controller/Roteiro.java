@@ -26,9 +26,9 @@ public class Roteiro {
 
         // Requisiçao ao frontController do tipo GET
         System.out.println(sistema.getlistTarefas());
-        tarefa1.setDescricao("Geral");
-        
+
         // Requisiçao ao frontController do tipo PUT
+        tarefa1.setDescricao("Geral");
         System.out.println(sistema.putTarefa(tarefa1));
 
         System.out.println(sistema.concluirTarefa(tarefa1));
