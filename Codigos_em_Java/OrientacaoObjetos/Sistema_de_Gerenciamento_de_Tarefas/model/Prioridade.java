@@ -1,7 +1,9 @@
 package model;
 
 /**
- * Enumeração que representa as prioridades de uma tarefa utilizando padrão multiton.
+ * Enumeração que representa as prioridades de uma tarefa utilizando padrão multiton
+ * , uma vez que, nós temos varias instancias (imutáveis) da mesma classe,
+ * e serão instanciadas em tempo de execução.
  * As prioridades são definidas por um valor inteiro, onde
  * valores menores indicam maior prioridade.
  */
