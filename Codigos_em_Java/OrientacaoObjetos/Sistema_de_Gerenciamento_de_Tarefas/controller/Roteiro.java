@@ -1,4 +1,4 @@
-import controller.TarefasController;
+package controller;
 import model.Prioridade;
 import model.Tarefa;
 
