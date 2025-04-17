@@ -4,7 +4,7 @@ import data.TarefasRepository;
 import model.Tarefa;
 
 /**
- * Serviço de tarefas que atua como um singleton.
+ * Serviço de tarefas que atua como um singleton e um Service Layer.
  * Este serviço é responsável por gerenciar as operações relacionadas às tarefas,
  * como adicionar, remover, atualizar e listar tarefas.
  */
@@ -18,19 +18,16 @@ public class TarefasService {
     }
 
     public static TarefasService getInstance() {
-        if (instance == null) {
+        if (getInstance() == null) {
             synchronized (TarefasService.class) {
-                if (instance == null) {
-                    instance = new TarefasService();
+                if (getInstance() == null) {
+                    setInstance(new TarefasService());
                 }
             }
         }
-        return instance;
+        return getInstance();
     }
     public String adicionarTarefa(Tarefa tarefa) {
-        if (tarefa == null) {
-            throw new IllegalArgumentException("A tarefa não pode ser nula.");
-        }
         return getInstanceRepository().adicionarTarefa(tarefa);
     }
     public String removerTarefa(Tarefa tarefa) {
@@ -43,11 +40,7 @@ public class TarefasService {
         return getInstanceRepository().getTarefasCadastradas();
     }
     public Tarefa getTarefaPorId(int id) {
-        Tarefa tarefa = getInstanceRepository().getTarefaPorId(id);
-        if (tarefa == null) {
-            throw new IllegalArgumentException("Tarefa com ID " + id + " não encontrada.");
-        }
-        return tarefa;
+        return getInstanceRepository().getTarefaPorId(id);
     }
     public String concluirTarefa(Tarefa tarefa) {
         Tarefa tarefaExistente = getTarefaPorId(tarefa.getIdlocal());
@@ -61,12 +54,7 @@ public class TarefasService {
     private static void setInstanceRepository(TarefasRepository instanceRepository) {
         TarefasService.instanceRepository = instanceRepository;
     }
-
-    private static TarefasRepository getRepository() {
-        return instanceRepository;
-    }
-
-    private static void setRepository(TarefasRepository repository) {
-        instanceRepository = repository;
+    private static void setInstance(TarefasService instance) {
+        TarefasService.instance = instance;
     }
 }

@@ -1,0 +1,19 @@
+syntax = "proto3";
+
+option java_multiple_files = true;
+option java_package = "org.sisd.grpc";
+option java_outer_classname = "SensorProto";
+
+message SensorRequest {
+  string identificacao = 1;
+  string localizacao = 2;
+}
+
+message SensorResponse {
+  string mensagem = 1;
+}
+
+service SensorService {
+  rpc AdicionarSensor (SensorRequest) returns (SensorResponse);
+  rpc ListarSensores (google.protobuf.Empty) returns (stream SensorRequest);
+}
