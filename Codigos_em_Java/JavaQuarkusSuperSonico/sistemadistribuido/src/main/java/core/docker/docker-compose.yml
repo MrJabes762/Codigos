@@ -1,0 +1,20 @@
+version: '3.9'
+
+services:
+  sensor01:
+    build: .
+    container_name: sensor01
+    environment:
+      - SENSOR_ID=sensor01
+      - LOCALIZACAO=Bahia
+    ports:
+      - "8081:8080"
+
+  sensor02:
+    build: .
+    container_name: sensor02
+    environment:
+      - SENSOR_ID=sensor02
+      - LOCALIZACAO=SãoPaulo
+    ports:
+      - "8082:8080"
