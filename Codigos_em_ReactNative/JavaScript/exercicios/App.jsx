@@ -18,7 +18,7 @@ export default function App() {
       <CompPadrao/>
       <Comp4/>
       <Comp5/>
-      <MinMax min= {4} max = {3}/>a
+      <MinMax min= {4} max = {3}/>
       <Aleatorio min = {1} max = {60}/>
       <Aleatorio min = {1} max = {40}/>
     </SafeAreaView>
