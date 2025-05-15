@@ -7,12 +7,12 @@ import SegundoComponente from './src/components/componente2/Componente2';
 import CompPadrao, { Comp4, Comp5 } from './src/components/Multi/Multi'; // Importando o componente Comp principal e os componentes Comp4 e Comp5 
 import MinMax from './src/components/minMax/MinMax';
 import Aleatorio from './src/components/aleatorio /Aleatorio';
+import Titulo from './src/components/frag/Titulo';
 
 
 export default function App() {
   return (
     <SafeAreaView style={stylesApp.container}>
-      <Text>Open up App.js to start working on your app!</Text>
       <PrimeiroComponente/>
       <SegundoComponente/>
       <CompPadrao/>
@@ -21,6 +21,10 @@ export default function App() {
       <MinMax min= {4} max = {3}/>
       <Aleatorio min = {1} max = {60}/>
       <Aleatorio min = {1} max = {40}/>
+      <Titulo 
+        principal = "Ola esse é o texto"
+        secundario = "Esse é o texto secundário"
+      />
     </SafeAreaView>
   );
 }
