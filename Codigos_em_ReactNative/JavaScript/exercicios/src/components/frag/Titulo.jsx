@@ -5,7 +5,7 @@ import estiloPadrao from "../Multi/estiloPadrao";
 
 
 export default props => (// Pode ser util quando eu quero passar apelas propriedades de leitura
-    //<React.Fragment> // Diferentemente de uma view ou qualquer UI, o React Fragment retorna apemas os elementos filhos
+    //<React.Fragment> // Diferentemente de uma view ou qualquer UI, o React Fragment retorna apenas os elementos filhos
     //<Fragment>// Pode ser dessa forma tambem
     // Pode ser dessa forma mais sutil
     <> 
