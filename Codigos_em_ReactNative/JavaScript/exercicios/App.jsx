@@ -8,6 +8,7 @@ import CompPadrao, { Comp4, Comp5 } from './src/components/Multi/Multi'; // Impo
 import MinMax from './src/components/minMax/MinMax';
 import Aleatorio from './src/components/aleatorio /Aleatorio';
 import Titulo from './src/components/frag/Titulo';
+import Botao from './src/components/botao/Botao';
 
 
 export default function App() {
@@ -24,6 +25,8 @@ export default function App() {
       <Titulo 
         principal = "Ola esse é o texto"
         secundario = "Esse é o texto secundário"
+      />
+      <Botao
       />
     </SafeAreaView>
   );
