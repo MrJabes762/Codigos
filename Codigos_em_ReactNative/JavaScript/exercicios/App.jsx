@@ -1,4 +1,4 @@
-import React from 'react';// sempre que se for utilizar JSX é necessário importar o React
+import React from 'react'; // sempre que se for utilizar JSX é necessário importar o React
 // O safeAreaView é um componente que garante que o conteúdo da aplicação não fique escondido por baixo da barra de status ou notificações do dispositivo.
 import { Text, SafeAreaView} from 'react-native';
 import { stylesApp } from './styleApp';
@@ -9,6 +9,7 @@ import MinMax from './src/components/minMax/MinMax';
 import Aleatorio from './src/components/aleatorio /Aleatorio';
 import Titulo from './src/components/frag/Titulo';
 import Botao from './src/components/botao/Botao';
+import Contador from './src/components/contador/Contador';
 
 
 export default function App() {
@@ -28,6 +29,13 @@ export default function App() {
       />
       <Botao
       />
+      {/* Contador Com Propriedades*/}
+      <Contador
+        iniciar = {10}
+        passo = {2}
+      />
+      {/* Contador Sem Propriedades*/}
+      <Contador/>
     </SafeAreaView>
   );
 }
