@@ -1,4 +1,4 @@
-import React from "react";// sempre que se for utilizar JSX é necessário importar o React
+import React from "react";// sempre que se for utilizar JSX ou TSX é necessário importar o React
 import {Text} from "react-native";
 import { stylesComponente1 } from "./styleComponente1";
 
