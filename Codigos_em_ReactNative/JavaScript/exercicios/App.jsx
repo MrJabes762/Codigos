@@ -12,6 +12,7 @@ import Botao from './src/components/botao/Botao';
 import Contador from './src/components/contador/Contador';
 import Pai from './src/components/direta/Pai';
 import PaiInd from './src/components/indireta/PaiInd';
+import ContadorV2 from './src/components/contadorv2/ContadorV2';
 
 
 export default function App() {
@@ -30,8 +31,8 @@ export default function App() {
       <Aleatorio min = {1} max = {60}/>
       <Aleatorio min = {1} max = {40}/>
       {/*Exemplos Basicos de Botão*/}
-      <Botao
-      />
+      {/*<Botao
+      />*/}
       {/*Propriedades de Leitura*/}
       <Titulo 
         principal = "Ola esse é o texto"
@@ -43,11 +44,13 @@ export default function App() {
         passo = {2}
       />*/}
       {/* Contador Sem Propriedades*/}
-      <Contador/>
+      {/*<Contador/>*/}
       {/*Comunicação Direta */}
-      <Pai x = {10} y = {20}/>
+      {/*<Pai x = {10} y = {20}/>*/}
       {/* Comunicação Indireta */}
-      <PaiInd inicial = {10} final = {20}/>
+      {/*<PaiInd inicial = {10} final = {20}/>*/}
+      {/*Comunicação Direta e Indireta*/}
+      <ContadorV2 nome = {"Alexia"} valor = {12}/>
     </SafeAreaView>
   );
 }
