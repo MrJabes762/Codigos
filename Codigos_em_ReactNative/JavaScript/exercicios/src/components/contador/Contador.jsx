@@ -4,6 +4,7 @@ import estiloPadrao from "../Multi/estiloPadrao";
 import { stylesContador } from "./styleContador";
 
 export default ({iniciar = 0, passo = 1}) => {
+  
   const [numero, setNumero] = useState(iniciar);
   const incrementar = () => setNumero(numero + passo);
   const decrementar = () => setNumero(numero - passo);
