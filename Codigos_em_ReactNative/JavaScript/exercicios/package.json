@@ -10,11 +10,11 @@
   },
   "dependencies": {
     "@expo/metro-runtime": "~5.0.4",
-    "expo": "~53",
+    "expo": "53.0.11",
     "expo-doctor": "^1.12.8",
     "react": "19.0.0",
     "react-dom": "19.0.0",
-    "react-native": "0.79.2",
+    "react-native": "0.79.3",
     "react-native-web": "^0.20.0",
     "react-refresh": "^0.14.0"
   },
