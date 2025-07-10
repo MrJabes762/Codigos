@@ -17,6 +17,7 @@ import Diferenciar from './src/components/diferenciarIosAndroid/diferenciar';
 import ParImpar from './src/components/ParImpar/ParImpar';
 import PaiRelacao from './src/components/relacao/PaiRelacao';
 import Filho from './src/components/relacao/Filho';
+import UsuarioLogado from './src/components/usuarioLogado/UsuarioLogado';
 
 
 export default function App() {
@@ -59,7 +60,7 @@ export default function App() {
       {/* Renderização Condicional */}
       <ParImpar props = {2}/>
       {/* Renderização de Componentes Filhos com o props.children */}
-      <PaiRelacao>
+      {/*<PaiRelacao>
         <Filho nome = "Python" sobrenome = "È Meu Ovo"/>
         <Filho nome = "Html" sobrenome = "Não é Linguagem de Programação"/>
         <Filho nome = "JavaScript" sobrenome = "Tem inveja do Java"/>
@@ -68,7 +69,9 @@ export default function App() {
         <Filho nome = "React" sobrenome = "É o Melhor"/>
         <Filho nome = "React Native" sobrenome = "É o Melhor para Mobile"/>
         <Filho nome = "React JS" sobrenome = "É o Melhor para Web"/>
-      </PaiRelacao>
+      </PaiRelacao>*/}
+      {/*Renderização condicional 2 - a partir de um componente*/}
+      <UsuarioLogado usuario={{nome:"Bia", sobrenome: "Silva", email: "biasilva321@gmail.com"}}/>
     </SafeAreaView>
   );
 }
