@@ -14,6 +14,7 @@ import Pai from './src/components/direta/Pai';
 import PaiInd from './src/components/indireta/PaiInd';
 import ContadorV2 from './src/components/contadorv2/ContadorV2';
 import Diferenciar from './src/components/diferenciarIosAndroid/diferenciar';
+import ParImpar from './src/components/ParImpar/ParImpar';
 
 
 export default function App() {
@@ -53,6 +54,7 @@ export default function App() {
       {/*Comunicação Direta e Indireta*/}
       <ContadorV2 nome = {"Alexia"} valor = {12}/>
       <Diferenciar/>
+      <ParImpar props = {2}/>
     </SafeAreaView>
   );
 }
