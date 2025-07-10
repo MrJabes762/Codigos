@@ -15,6 +15,8 @@ import PaiInd from './src/components/indireta/PaiInd';
 import ContadorV2 from './src/components/contadorv2/ContadorV2';
 import Diferenciar from './src/components/diferenciarIosAndroid/diferenciar';
 import ParImpar from './src/components/ParImpar/ParImpar';
+import PaiRelacao from './src/components/relacao/PaiRelacao';
+import Filho from './src/components/relacao/Filho';
 
 
 export default function App() {
@@ -52,9 +54,21 @@ export default function App() {
       {/* Comunicação Indireta */}
       {/*<PaiInd inicial = {10} final = {20}/>*/}
       {/*Comunicação Direta e Indireta*/}
-      <ContadorV2 nome = {"Alexia"} valor = {12}/>
+      {/*<ContadorV2 nome = {"Alexia"} valor = {12}/>*/}
       <Diferenciar/>
+      {/* Renderização Condicional */}
       <ParImpar props = {2}/>
+      {/* Renderização de Componentes Filhos com o props.children */}
+      <PaiRelacao>
+        <Filho nome = "Python" sobrenome = "È Meu Ovo"/>
+        <Filho nome = "Html" sobrenome = "Não é Linguagem de Programação"/>
+        <Filho nome = "JavaScript" sobrenome = "Tem inveja do Java"/>
+      </PaiRelacao>
+      <PaiRelacao>
+        <Filho nome = "React" sobrenome = "É o Melhor"/>
+        <Filho nome = "React Native" sobrenome = "É o Melhor para Mobile"/>
+        <Filho nome = "React JS" sobrenome = "É o Melhor para Web"/>
+      </PaiRelacao>
     </SafeAreaView>
   );
 }
