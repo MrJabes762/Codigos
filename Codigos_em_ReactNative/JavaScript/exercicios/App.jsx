@@ -18,6 +18,7 @@ import ParImpar from './src/components/ParImpar/ParImpar';
 import PaiRelacao from './src/components/relacao/PaiRelacao';
 import Filho from './src/components/relacao/Filho';
 import UsuarioLogado from './src/components/usuarioLogado/UsuarioLogado';
+import ListaProdutos from './src/components/produtos/ListaProdutos';
 
 
 export default function App() {
@@ -39,10 +40,10 @@ export default function App() {
       {/*<Botao
       />*/}
       {/*Propriedades de Leitura*/}
-      <Titulo 
+      {/*<Titulo 
         principal = "Ola esse é o texto"
         secundario = "Esse é o texto secundário"
-      />
+      />*/}
       {/* Contador Com Propriedades*/}
       {/*<Contador
         iniciar = {10}
@@ -71,7 +72,9 @@ export default function App() {
         <Filho nome = "React JS" sobrenome = "É o Melhor para Web"/>
       </PaiRelacao>*/}
       {/*Renderização condicional 2 - a partir de um componente*/}
-      <UsuarioLogado usuario={{nome:"Bia", sobrenome: "Silva", email: "biasilva321@gmail.com"}}/>
+      {/*<UsuarioLogado usuario={{nome:"Bia", sobrenome: "Silva", email: "biasilva321@gmail.com"}}/>*/}
+      {/*Renderização de Lista de Produtos com Key*/}
+      <ListaProdutos/>
     </SafeAreaView>
   );
 }
