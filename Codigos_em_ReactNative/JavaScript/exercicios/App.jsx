@@ -19,6 +19,7 @@ import Familia from './src/components/relacao/Familia';
 import Membro from './src/components/relacao/Membro';
 import UsuarioLogado from './src/components/usuarioLogado/UsuarioLogado';
 import ListaProdutos from './src/components/produtos/ListaProdutos';
+import ListaProdutosV2 from './src/components/produtos/ListaProdutosV2/ListaProdutosV2';
 
 
 export default function App() {
@@ -74,7 +75,8 @@ export default function App() {
       {/*Renderização condicional 2 - a partir de um componente*/}
       {/*<UsuarioLogado usuario={{nome:"Bia", sobrenome: "Silva", email: "biasilva321@gmail.com"}}/>*/}
       {/*Renderização de Lista de Produtos com Key*/}
-      <ListaProdutos/>
+      {/*<ListaProdutos/>*/}
+      <ListaProdutosV2/>
     </SafeAreaView>
   );
 }
