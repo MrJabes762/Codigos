@@ -15,8 +15,8 @@ import PaiInd from './src/components/indireta/PaiInd';
 import ContadorV2 from './src/components/contadorv2/ContadorV2';
 import Diferenciar from './src/components/diferenciarIosAndroid/diferenciar';
 import ParImpar from './src/components/ParImpar/ParImpar';
-import PaiRelacao from './src/components/relacao/PaiRelacao';
-import Filho from './src/components/relacao/Filho';
+import Familia from './src/components/relacao/Familia';
+import Membro from './src/components/relacao/Membro';
 import UsuarioLogado from './src/components/usuarioLogado/UsuarioLogado';
 import ListaProdutos from './src/components/produtos/ListaProdutos';
 
@@ -61,16 +61,16 @@ export default function App() {
       {/* Renderização Condicional */}
       <ParImpar props = {2}/>
       {/* Renderização de Componentes Filhos com o props.children */}
-      {/*<PaiRelacao>
-        <Filho nome = "Python" sobrenome = "È Meu Ovo"/>
-        <Filho nome = "Html" sobrenome = "Não é Linguagem de Programação"/>
-        <Filho nome = "JavaScript" sobrenome = "Tem inveja do Java"/>
-      </PaiRelacao>
-      <PaiRelacao>
-        <Filho nome = "React" sobrenome = "É o Melhor"/>
-        <Filho nome = "React Native" sobrenome = "É o Melhor para Mobile"/>
-        <Filho nome = "React JS" sobrenome = "É o Melhor para Web"/>
-      </PaiRelacao>*/}
+      {/*<Familia>
+        <Membro nome = "Python" sobrenome = "È Meu Ovo"/>
+        <Membro nome = "Html" sobrenome = "Não é Linguagem de Programação"/>
+        <Membro nome = "JavaScript" sobrenome = "Tem inveja do Java"/>
+      </Familia>
+      <Familia>
+        <Membro nome = "React" sobrenome = "JS/CORE"/>
+        <Membro nome = "React" sobrenome = "Native"/>
+        <Membro nome = "React" sobrenome = "Native for Web"/>
+      </Familia>*/}
       {/*Renderização condicional 2 - a partir de um componente*/}
       {/*<UsuarioLogado usuario={{nome:"Bia", sobrenome: "Silva", email: "biasilva321@gmail.com"}}/>*/}
       {/*Renderização de Lista de Produtos com Key*/}

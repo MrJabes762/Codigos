@@ -1,7 +1,7 @@
 import React from "react";
 import { View, Text } from "react-native";
 import estiloPadrao from "../Multi/estiloPadrao";
-import Filho from "./Filho";
+import Filho from "./Membro";
 
 export default (props) => {
   
