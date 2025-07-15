@@ -23,6 +23,7 @@ import ListaProdutosV2 from "./src/components/produtos/ListaProdutosV2/ListaProd
 import DigiteSeuNome from "./src/components/TextInput/DigiteSeuNome";
 import estiloPadrao from "./src/components/Multi/estiloPadrao";
 import If from "./src/components/if/if";
+import FlexboxV1 from "./src/components/layout/flexboxV1/FlexboxV1";
 
 export default function App() {
   const [exercicio, setExercicio] = useState(""); // Estado para controlar o exercício atual
@@ -127,6 +128,10 @@ export default function App() {
       <If test={exercicio === "Componente Controlado"}>
         {/*Componente controlado com Renderização de TextInput*/}
         <DigiteSeuNome campo="Nome" />
+      </If>
+      <If test = {exercicio === "Flexbox Quadrado"}>
+        {/*Quadrado com Flexbox*/}
+        <FlexboxV1/>
       </If>
     </SafeAreaView>
   );
