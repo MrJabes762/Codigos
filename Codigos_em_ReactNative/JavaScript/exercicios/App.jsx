@@ -24,11 +24,13 @@ import DigiteSeuNome from "./src/components/TextInput/DigiteSeuNome";
 import estiloPadrao from "./src/components/Multi/estiloPadrao";
 import If from "./src/components/if/if";
 import FlexboxV1 from "./src/components/layout/flexboxV1/FlexboxV1";
+import FlexboxV2 from "./src/components/layout/flexboxV2/FlexboxV2";
+import FlexboxV3 from "./src/components/layout/flexboxV3/FlexboxV3";
 
 export default function App() {
   const [exercicio, setExercicio] = useState(""); // Estado para controlar o exercício atual
   return (
-    <SafeAreaView style={stylesApp.container}>
+    <SafeAreaView style={stylesApp.container}>{/*Naturalmente este componente aplica flexbox em sua construção*/}
       <Text style={estiloPadrao.textoGrande}>Exercicio: {exercicio}</Text>
       <TextInput
         placeholder="Digite o exercício"
@@ -133,6 +135,11 @@ export default function App() {
         {/*Quadrado com Flexbox*/}
         <FlexboxV1/>
       </If>
+      <If test = {exercicio === "Flexbox 2"}>
+        {/*Flexbox 2 */}
+        <FlexboxV2/>
+      </If>
+      
     </SafeAreaView>
   );
 }
