@@ -26,6 +26,7 @@ import If from "./src/components/if/if";
 import FlexboxV1 from "./src/components/layout/flexboxV1/FlexboxV1";
 import FlexboxV2 from "./src/components/layout/flexboxV2/FlexboxV2";
 import FlexboxV3 from "./src/components/layout/flexboxV3/FlexboxV3";
+import FlexboxV4 from "./src/components/layout/flexboxV4/FlexboxV4";
 
 export default function App() {
   const [exercicio, setExercicio] = useState(""); // Estado para controlar o exercício atual
@@ -142,6 +143,10 @@ export default function App() {
       <If test = {exercicio === "Flexbox 3"}>
         {/*Flexbox 3*/}
         <FlexboxV3/>
+      </If>
+      <If test={exercicio === "Flexbox 4"}>
+        {/*Flexbox 4*/}
+        <FlexboxV4 />
       </If>
     </SafeAreaView>
   );
