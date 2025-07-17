@@ -1,7 +1,7 @@
 import { StyleSheet } from "react-native";
 
 
-// Estilização do componente FlexboxV1
+// Estilização do componente FlexboxV2
 // O flexbox com flex1 faz com que o container ocupe todo o espaço disponível
 // No justifyContent e no Alignitens o valor "space-evenly" distribui os elelemtos igualmente,
 // enquanto o "center" centraliza os elementos dentro do container.
