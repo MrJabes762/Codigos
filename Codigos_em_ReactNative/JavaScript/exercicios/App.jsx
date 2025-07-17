@@ -139,7 +139,10 @@ export default function App() {
         {/*Flexbox 2 */}
         <FlexboxV2/>
       </If>
-      
+      <If test = {exercicio === "Flexbox 3"}>
+        {/*Flexbox 3*/}
+        <FlexboxV3/>
+      </If>
     </SafeAreaView>
   );
 }
