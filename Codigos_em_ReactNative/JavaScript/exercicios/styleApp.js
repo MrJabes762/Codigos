@@ -5,7 +5,7 @@ import {StyleSheet} from "react-native"
 export const stylesApp = StyleSheet.create({
     container: {
       flexGrow: 1,// tanto o flex quanto o flexgrow crescem dinamicamente, a numeração é relativa ao tamanho do container pai
-      backgroundColor: 'white',
+      backgroundColor: 'gray',
       alignItems: 'center',
       justifyContent: 'center',
       padding:20,

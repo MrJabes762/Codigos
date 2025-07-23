@@ -1,0 +1,18 @@
+{
+  "Componente Funcional": {
+    "scope": "javascript, Typescript, javascriptreact, typescriptreact",
+    "prefix": "compFuncional",
+    "body": [
+      "import React from 'react'",
+      "import { View, Text } from 'react-native'",
+      "import estiloPadrao from '../Multi/estiloPadrao';",
+      "",
+      "export default props => {",
+      "    return (",
+      "       <Text style = {estiloPadrao.textoGrande}>$1</Text>",
+      ");",
+      "}"
+    ],
+    "description": "Componente Minimamente Funcional em React Native"
+  }
+}
