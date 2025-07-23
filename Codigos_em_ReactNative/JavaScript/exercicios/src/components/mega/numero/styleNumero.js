@@ -16,5 +16,6 @@ export const styleNumero = StyleSheet.create({
         alignItems: "center",
         borderWidth: 2,
         borderColor: "black",
+        margin: 5,
     }
 });
