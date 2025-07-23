@@ -5,7 +5,7 @@ import { styleNumero } from "./styleNumero";
 export default ({index , numero}) => {
   return (
     <>
-      <View style = {styleNumero.ViewNumero}>
+      <View style = {styleNumero.ViewNumero} key={index}>
         <Text style = {styleNumero.textoMap}>
             {index + 1} = {numero}
         </Text>
