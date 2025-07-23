@@ -27,6 +27,7 @@ import FlexboxV1 from "./src/components/layout/flexboxV1/FlexboxV1";
 import FlexboxV2 from "./src/components/layout/flexboxV2/FlexboxV2";
 import FlexboxV3 from "./src/components/layout/flexboxV3/FlexboxV3";
 import FlexboxV4 from "./src/components/layout/flexboxV4/FlexboxV4";
+import Mega from "./src/components/mega/Mega";
 
 export default function App() {
   const [exercicio, setExercicio] = useState(""); // Estado para controlar o exercício atual
@@ -147,6 +148,10 @@ export default function App() {
       <If test={exercicio === "Flexbox 4"}>
         {/*Flexbox 4*/}
         <FlexboxV4 />
+      </If>
+      <If test={exercicio === "Componente de Classe - Mega 1"}>
+        {/*Mega 1*/}
+        <Mega qtdNumeros = {12}/>
       </If>
     </SafeAreaView>
   );
